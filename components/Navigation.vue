@@ -3,24 +3,28 @@
         <div class="nav">
             <div class="nav-ctrl">
                 <div class="nav-ctrl-next">
-                    <div class="nav-ctrl-next-icon"></div>
+                    <nuxt-link to="`/${ demos[indexedDemo - 1].page }`"><div class="nav-ctrl-next-icon"></div></nuxt-link>
                 </div>
                 <div class="nav-ctrl-prev">
                     <div class="nav-ctrl-prev-icon"></div>
                 </div>
             </div>
             <div class="nav-title">
-                <h1 :id="labTitle">{{ labTitle }}</h1>
+                <h1>{{ demos[indexedDemo].title }}</h1>
             </div>
             <div class="nav-external">
                 <div class="nav-external-link">
-                    timblin.co
+                    <a :href="`${ demos[indexedDemo].article }`" target="_blank">timblin.co</a>
                 </div>
                 <div class="nav-external-link">
-                    <a :href="`https://github.com/tatimblin/labs/blob/master/pages/${page}.vue`" target="_blank">github</a>
+                    <a :href="`https://github.com/tatimblin/labs/blob/master/pages/${ demos[indexedDemo].page }.vue`" target="_blank">github</a>
                 </div>
                 <div class="nav-external-link">
-                    twitter
+                    <a href="https://twitter.com/share?url=&text=&source=tristantimblin&related=tristantimblin" target="_blank">
+                        <icon-base class="twitter" icon-name="twitter" icon-color="red">
+                            <icon-twitter />
+                        </icon-base>
+                    </a>
                 </div>
             </div>
         </div>
@@ -32,15 +36,14 @@
 
 <script>
     import { mapState } from 'vuex'
+    import IconBase from './IconBase.vue'
+    import IconTwitter from './IconTwitter.vue'
     
     export default {
-        props: {
-            labTitle: {
-                type: String,
-                default: 'A Demo By Tristan'
-            }
+        components: {
+            IconBase
         },
-        computed: mapState(['page']),
+        computed: mapState(['page', 'indexedDemo', 'demos']),
         data() {
             return {
                 isClosed: false
