@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <div>
-      <navigation/>
+      <navigation lab-title="My First Demo" />
       <h1>This is demo.vue</h1>
     </div>
   </section>
@@ -11,9 +11,9 @@
 import Navigation from '~/components/Navigation.vue'
 
 export default {
-  components: {
-    Navigation
-  }
+    components: {
+        Navigation
+    }
 }
 </script>
 

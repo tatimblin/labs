@@ -50,5 +50,11 @@ module.exports = {
         ]
       }
     ]
+  },
+  /*
+  ** Register middleware files
+  */
+  router: {
+    middleware: 'pages'
   }
 }
