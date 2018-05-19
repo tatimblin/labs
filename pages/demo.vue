@@ -1,25 +1,25 @@
 <template>
   <section class="container">
     <div>
-      <app-logo/>
+      <navigation/>
       <h1>This is demo.vue</h1>
     </div>
   </section>
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
+import Navigation from '~/components/Navigation.vue'
 
 export default {
   components: {
-    AppLogo
+    Navigation
   }
 }
 </script>
 
 <style scoped lang="scss">
 .container {
-    div {
+    h1 {
         background-color: red;
     }
 }
