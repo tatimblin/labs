@@ -2,16 +2,12 @@
     <nav v-bind:class="{active: isClosed}">
         <div class="nav">
             <div class="nav-ctrl">
-                <div class="nav-ctrl-next">
-                    <nuxt-link :to="`${ currentLab.page }`">
-                        <div class="nav-ctrl-next-icon"></div>
-                    </nuxt-link>
-                </div>
-                <div class="nav-ctrl-prev">
-                    <nuxt-link :to="`${ currentLab.page }`">
-                        <div class="nav-ctrl-prev-icon"></div>
-                    </nuxt-link>
-                </div>
+                <nuxt-link :to="`${ currentLab.page }`" class="nav-ctrl-next">
+                    next
+                </nuxt-link>
+                <nuxt-link :to="`${ currentLab.page }`" class="nav-ctrl-prev">
+                    prev
+                </nuxt-link>
             </div>
             <div class="nav-title">
                 <h1>{{ currentLab.title }}</h1>
@@ -77,6 +73,7 @@
     }
     
     .nav {
+        position: relative;
         display: flex;
         max-width: 1200px + $spacing*2;
         margin: 0 auto;
@@ -86,38 +83,10 @@
         &-ctrl {
             display: flex;
             
-            div {
-                width: 16px;
-                margin-right: $spacing;
-                
-                .nav-ctrl-prev-icon, .nav-ctrl-next-icon {
-                    color: $brand;
-                    position: absolute;
-                    margin-left: 3px;
-                    margin-top: 10px;
-                    
-                    &:before {
-                        content: '';
-                        position: absolute;
-                        left: 1px;
-                        top: -5px;
-                        width: 12px;
-                        height: 12px;
-                        border-top: solid 1px currentColor;
-                        border-right: solid 1px currentColor;
-                        -webkit-transform: rotate(-135deg);
-                        transform: rotate(-135deg);
-                    }
-                }
-                .nav-ctrl-prev-icon {
-                    margin-left: 2px;
-                    &:before {
-                        top: -5px;
-                        left: auto; right: 1px;
-                        -webkit-transform: rotate(45deg);
-                        transform: rotate(45deg);
-                    }
-                }
+            &-next, &-prev {
+                margin-right: 15px;
+                padding: 8px;
+                background-color: green;
             }
         }
         &-title {

@@ -20,7 +20,7 @@ export default {
 <style scoped lang="scss">
 .container {
     h1 {
-        background-color: red;
+        background-color: orange;
     }
 }
 </style>
