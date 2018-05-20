@@ -2,13 +2,13 @@
     <nav v-bind:class="{active: isClosed}">
         <div class="nav">
             <div class="nav-ctrl">
-                <div class="nav-ctrl-next" @click="$store.commit('incIndex')">
-                    <nuxt-link :to="`${ nextLab.page }`">
+                <div class="nav-ctrl-next">
+                    <nuxt-link :to="`${ currentLab.page }`">
                         <div class="nav-ctrl-next-icon"></div>
                     </nuxt-link>
                 </div>
-                <div class="nav-ctrl-prev" @click="$store.commit('decIndex')">
-                    <nuxt-link :to="`${ prevLab.page }`">
+                <div class="nav-ctrl-prev">
+                    <nuxt-link :to="`${ currentLab.page }`">
                         <div class="nav-ctrl-prev-icon"></div>
                     </nuxt-link>
                 </div>
@@ -21,7 +21,7 @@
                     <a href="/" target="_blank">timblin.co</a>
                 </div>
                 <div class="nav-external-link">
-                    <a href="`https://github.com/tatimblin/labs/blob/master/pages/.vue`" target="_blank">github</a>
+                    <a :href="`https://github.com/tatimblin/labs/blob/master/pages/${ currentLab.page }.vue`" target="_blank">github</a>
                 </div>
                 <div class="nav-external-link">
                     <a href="https://twitter.com/share?url=&text=&source=tristantimblin&related=tristantimblin" target="_blank">

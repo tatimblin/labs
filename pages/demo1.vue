@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <div>
-      <h1>This is demo1.vue {{ title }}</h1>
+      <h1>This is demo1.vue</h1>
     </div>
   </section>
 </template>

@@ -4,27 +4,26 @@ const createStore = () => {
     return new Vuex.Store({
         state: {
             page: 'index',
-            indexedLab: 1,
+            indexedLab: 0,
             labs: [
                 { 
-                    page: 'demo3',
-                    title: 'My zeroth Demo'
-                },
-                { 
-                    page: 'demo4',
-                    title: 'My Fourth Demo'
-                },
-                { 
                     page: 'demo',
-                    title: 'My Third Demo',
-                    article: 'http://timblin.co'
+                    title: 'My Most Recent Demo'
                 },
                 { 
                     page: 'demo1',
-                    title: 'My Second Demo'
+                    title: 'My Fourth Demo'
                 },
                 { 
                     page: 'demo2',
+                    title: 'My Third Demo'
+                },
+                { 
+                    page: 'demo3',
+                    title: 'My Second Demo'
+                },
+                { 
+                    page: 'demo4',
                     title: 'My First Demo'
                 }
             ]
@@ -32,12 +31,6 @@ const createStore = () => {
         getters: {
             currentLab: state => {
                 return state.labs[state.indexedLab]
-            },
-            prevLab: state => {
-                return state.labs[state.indexedLab + 1]
-            },
-            nextLab: state => {
-                return state.labs[state.indexedLab - 1]
             }
         },
         mutations: {
