@@ -2,28 +2,30 @@
     <nav v-bind:class="{active: isClosed}">
         <div class="nav">
             <div class="nav-ctrl">
-                <div class="nav-ctrl-next">
-                    <nuxt-link to="`/${ demos[indexedDemo - 1].page }`"><div class="nav-ctrl-next-icon"></div></nuxt-link>
+                <div class="nav-ctrl-next" @click="$store.commit('incIndex')">
+                    <nuxt-link :to="`${ nextLab.page }`">
+                        <div class="nav-ctrl-next-icon"></div>
+                    </nuxt-link>
                 </div>
-                <div class="nav-ctrl-prev">
-                    <div class="nav-ctrl-prev-icon"></div>
+                <div class="nav-ctrl-prev" @click="$store.commit('decIndex')">
+                    <nuxt-link :to="`${ prevLab.page }`">
+                        <div class="nav-ctrl-prev-icon"></div>
+                    </nuxt-link>
                 </div>
             </div>
             <div class="nav-title">
-                <h1>{{ demos[indexedDemo].title }}</h1>
+                <h1>{{ currentLab.title }}</h1>
             </div>
             <div class="nav-external">
                 <div class="nav-external-link">
-                    <a :href="`${ demos[indexedDemo].article }`" target="_blank">timblin.co</a>
+                    <a href="/" target="_blank">timblin.co</a>
                 </div>
                 <div class="nav-external-link">
-                    <a :href="`https://github.com/tatimblin/labs/blob/master/pages/${ demos[indexedDemo].page }.vue`" target="_blank">github</a>
+                    <a href="`https://github.com/tatimblin/labs/blob/master/pages/.vue`" target="_blank">github</a>
                 </div>
                 <div class="nav-external-link">
                     <a href="https://twitter.com/share?url=&text=&source=tristantimblin&related=tristantimblin" target="_blank">
-                        <icon-base class="twitter" icon-name="twitter" icon-color="red">
-                            <icon-twitter />
-                        </icon-base>
+                        twitter
                     </a>
                 </div>
             </div>
@@ -35,15 +37,19 @@
 </template>
 
 <script>
-    import { mapState } from 'vuex'
+    import { mapState, mapGetters } from 'vuex'
     import IconBase from './IconBase.vue'
     import IconTwitter from './IconTwitter.vue'
     
     export default {
         components: {
-            IconBase
+            IconBase,
+            IconTwitter
         },
-        computed: mapState(['page', 'indexedDemo', 'demos']),
+        computed: {
+            ...mapState(['page']),
+            ...mapGetters(['currentLab', 'prevLab', 'nextLab'])
+        },
         data() {
             return {
                 isClosed: false

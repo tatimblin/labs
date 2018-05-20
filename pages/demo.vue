@@ -1,13 +1,20 @@
 <template>
   <section class="container">
     <div>
-      <h1>This is </h1>
+      <h1>This is demo.vue {{ title }}</h1>
     </div>
   </section>
 </template>
 
 <script>
-    
+
+export default {
+    data() {
+        return {
+            title: 'Issa demo'
+        }
+    }
+}
 </script>
 
 <style scoped lang="scss">

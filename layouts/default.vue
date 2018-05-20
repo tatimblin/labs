@@ -1,19 +1,17 @@
 <template>
     <div>
-        <navigation :title="`${ demos[indexedDemo].title }`"/>
+        <navigation/>
         <nuxt/>
     </div>
 </template>
 
 <script>
-    import { mapState } from 'vuex'
     import Navigation from '~/components/Navigation.vue'    
     
     export default {
         components: {
             Navigation
-        },
-        computed: mapState(['page', 'indexedDemo', 'demos'])
+        }
     }
 </script>
 
