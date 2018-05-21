@@ -5,8 +5,30 @@ const createStore = () => {
         state: {
             page: 'demo',
             indexedLab: 0,
-            whatsThis: 0,
-            labs: ['demo', 'demo1', 'demo2', 'demo3', 'demo4']
+            whatsThis: 'whatsThis',
+            templabs: ['demo', 'demo1', 'demo2', 'demo3', 'demo4'],
+            labs: [
+                {
+                    page: 'demo',
+                    title: 'My Most Recent Demo'
+                },
+                {
+                    page: 'demo1',
+                    title: 'My Fourth Demo'
+                },
+                {
+                    page: 'demo2',
+                    title: 'My Third Demo'
+                },
+                {
+                    page: 'demo3',
+                    title: 'My Second Demo'
+                },
+                {
+                    page: 'demo4',
+                    title: 'My First Demo'
+                },
+            ]
         },
         getters: {
             currentLab: state => {
@@ -22,7 +44,8 @@ const createStore = () => {
         mutations: {
             updatePage(state, pageName) {
                 state.page = pageName
-                state.indexedLab = state.labs.indexOf(state.page)
+                //state.indexedLab = state.templabs.indexOf(state.page)
+                state.indexedLab = state.labs.findIndex(x => x.page === state.page)
             }
         }
     })

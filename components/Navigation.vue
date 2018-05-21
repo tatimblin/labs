@@ -2,22 +2,22 @@
     <nav v-bind:class="{active: isClosed}">
         <div class="nav">
             <div class="nav-ctrl">
-                <nuxt-link :to="`${ nextLab }`" class="nav-ctrl-next">
+                <nuxt-link :to="`${ nextLab.page }`" class="nav-ctrl-next">
                     next
                 </nuxt-link>
-                <nuxt-link :to="`${ prevLab }`" class="nav-ctrl-prev">
+                <nuxt-link :to="`${ prevLab.page }`" class="nav-ctrl-prev">
                     prev
                 </nuxt-link>
             </div>
             <div class="nav-title">
-                <h1>{{ currentLab }}</h1>
+                <h1>{{ currentLab.title }}</h1>
             </div>
             <div class="nav-external">
                 <div class="nav-external-link">
                     <a href="/" target="_blank">timblin.co</a>
                 </div>
                 <div class="nav-external-link">
-                    <a :href="`https://github.com/tatimblin/labs/blob/master/pages/${ currentLab }.vue`" target="_blank">github</a>
+                    <a :href="`https://github.com/tatimblin/labs/blob/master/pages/${ currentLab.page }.vue`" target="_blank">github</a>
                 </div>
                 <div class="nav-external-link">
                     <a href="https://twitter.com/share?url=&text=&source=tristantimblin&related=tristantimblin" target="_blank">
