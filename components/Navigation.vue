@@ -2,22 +2,22 @@
     <nav v-bind:class="{active: isClosed}">
         <div class="nav">
             <div class="nav-ctrl">
-                <nuxt-link :to="`${ currentLab.page }`" class="nav-ctrl-next">
+                <nuxt-link :to="`${ nextLab }`" class="nav-ctrl-next">
                     next
                 </nuxt-link>
-                <nuxt-link :to="`${ currentLab.page }`" class="nav-ctrl-prev">
+                <nuxt-link :to="`${ prevLab }`" class="nav-ctrl-prev">
                     prev
                 </nuxt-link>
             </div>
             <div class="nav-title">
-                <h1>{{ currentLab.title }}</h1>
+                <h1>{{ currentLab }}</h1>
             </div>
             <div class="nav-external">
                 <div class="nav-external-link">
                     <a href="/" target="_blank">timblin.co</a>
                 </div>
                 <div class="nav-external-link">
-                    <a :href="`https://github.com/tatimblin/labs/blob/master/pages/${ currentLab.page }.vue`" target="_blank">github</a>
+                    <a :href="`https://github.com/tatimblin/labs/blob/master/pages/${ currentLab }.vue`" target="_blank">github</a>
                 </div>
                 <div class="nav-external-link">
                     <a href="https://twitter.com/share?url=&text=&source=tristantimblin&related=tristantimblin" target="_blank">
@@ -43,7 +43,7 @@
             IconTwitter
         },
         computed: {
-            ...mapState(['page']),
+            ...mapState(['page', 'labs']),
             ...mapGetters(['currentLab', 'prevLab', 'nextLab'])
         },
         data() {
@@ -54,6 +54,9 @@
         methods: {
             toggleNav() {
                 this.isClosed = !this.isClosed;
+            },
+            setPage() {
+                test = this.$store.state.indexedLab
             }
         }
     }
@@ -66,7 +69,7 @@
     
     nav {
         position: relative;
-        height: 55px;
+        height: 65px;
         background-color: #F0F0F0;
         box-shadow: inset 0 -10px 25px rgba(0,0,0,.22);
         transition: all 600ms $ease; 
@@ -75,9 +78,11 @@
     .nav {
         position: relative;
         display: flex;
+        align-items: center;
+        height: 100%;
         max-width: 1200px + $spacing*2;
         margin: 0 auto;
-        padding: $spacing;
+        padding: 0 $spacing;
         transition: all 600ms $ease; 
         
         &-ctrl {
@@ -145,7 +150,7 @@
         height: 0;
         
         .nav {
-            transform: translateY(-100%);
+            transform: translateY(-65px);
         }
         .toggle {
             
