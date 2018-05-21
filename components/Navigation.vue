@@ -54,9 +54,6 @@
         methods: {
             toggleNav() {
                 this.isClosed = !this.isClosed;
-            },
-            setPage() {
-                test = this.$store.state.indexedLab
             }
         }
     }

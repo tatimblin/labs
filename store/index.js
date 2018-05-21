@@ -5,7 +5,6 @@ const createStore = () => {
         state: {
             page: 'demo',
             indexedLab: 0,
-            whatsThis: 'whatsThis',
             templabs: ['demo', 'demo1', 'demo2', 'demo3', 'demo4'],
             labs: [
                 {
@@ -26,8 +25,8 @@ const createStore = () => {
                 },
                 {
                     page: 'demo4',
-                    title: 'My First Demo'
-                },
+                    title: 'The Very First Demo'
+                }
             ]
         },
         getters: {
@@ -35,10 +34,10 @@ const createStore = () => {
                 return state.labs[state.indexedLab]
             },
             prevLab: state => {
-                return state.labs[state.indexedLab + 1]
+                return state.labs[state.prevLab]
             },
             nextLab: state => {
-                return state.labs[state.indexedLab - 1]
+                return state.labs[state.nextLab]
             }
         },
         mutations: {
@@ -46,6 +45,20 @@ const createStore = () => {
                 state.page = pageName
                 //state.indexedLab = state.templabs.indexOf(state.page)
                 state.indexedLab = state.labs.findIndex(x => x.page === state.page)
+                // Go back to most recent lab when reach end.
+                if (state.indexedLab == state.labs.length - 1) {
+                    state.prevLab = 0
+                    state.whatsThis = 'if'
+                } else {
+                    state.prevLab = state.indexedLab + 1
+                    state.whatsThis = 'else'
+                }
+                // Jump to earliest tab when at beginning.
+                if (state.indexedLab == 0) {
+                    state.nextLab = state.labs.length - 1
+                } else {
+                    state.nextLab = state.indexedLab - 1
+                }
             }
         }
     })
