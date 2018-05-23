@@ -9,23 +9,28 @@ const createStore = () => {
             labs: [
                 {
                     page: 'demo',
-                    title: 'My Most Recent Demo'
+                    title: 'My Most Recent Demo',
+                    article: '/snippets'
                 },
                 {
                     page: 'demo1',
-                    title: 'My Fourth Demo'
+                    title: 'My Fourth Demo',
+                    article: ''
                 },
                 {
                     page: 'demo2',
-                    title: 'My Third Demo'
+                    title: 'My Third Demo',
+                    article: '/snippets'
                 },
                 {
                     page: 'demo3',
-                    title: 'My Second Demo'
+                    title: 'My Second Demo',
+                    article: '/snippets'
                 },
                 {
                     page: 'demo4',
-                    title: 'The Very First Demo'
+                    title: 'The Very First Demo',
+                    article: '/snippets'
                 }
             ]
         },

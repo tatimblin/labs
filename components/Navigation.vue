@@ -3,10 +3,10 @@
         <div class="nav">
             <div class="nav-ctrl">
                 <nuxt-link :to="`${ nextLab.page }`" class="nav-ctrl-next">
-                    next
+                    <div class="nav-ctrl-next-icon"></div>
                 </nuxt-link>
                 <nuxt-link :to="`${ prevLab.page }`" class="nav-ctrl-prev">
-                    prev
+                    <div class="nav-ctrl-prev-icon"></div>
                 </nuxt-link>
             </div>
             <div class="nav-title">
@@ -14,7 +14,7 @@
             </div>
             <div class="nav-external">
                 <div class="nav-external-link">
-                    <a href="/" target="_blank">timblin.co</a>
+                    <a :href="`http://timblin.co/${currentLab.article}`" target="_blank">timblin.co</a>
                 </div>
                 <div class="nav-external-link">
                     <a :href="`https://github.com/tatimblin/labs/blob/master/pages/${ currentLab.page }.vue`" target="_blank">github</a>
@@ -43,7 +43,7 @@
             GithubButton
         },
         computed: {
-            ...mapState(['page', 'labs']),
+            ...mapState(['page', 'labs', 'indexedLab']),
             ...mapGetters(['currentLab', 'prevLab', 'nextLab'])
         },
         data() {
@@ -60,7 +60,7 @@
 </script>
 
 <style scoped lang="scss">
-    $brand: #a1a1a1;
+    $brand: #2b2b2b;
     $font: "brevia", sans-serif;
     $spacing: 15px;
     $ease: ease;
@@ -85,9 +85,38 @@
             display: flex;
             
             &-next, &-prev {
-                margin-right: 15px;
-                padding: 8px;
-                background-color: green;
+                width: 30px; height: 1.3em;
+                
+                &-icon {
+                    color: $brand;
+                    position: absolute;
+                    margin-left: 2px;
+                    margin-top: 10px;
+                    width: 16px;
+                    height: 1px;
+                    background-color: currentColor;
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        right: 1px;
+                        top: -5px;
+                        width: 10px;
+                        height: 10px;
+                        border-top: solid 1px currentColor;
+                        border-right: solid 1px currentColor;
+                        -webkit-transform: rotate(45deg);
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+            &-next-icon {
+                margin-left: 3px;
+                
+                &:before {
+                    left: 1px; right: inherit;
+                    -webkit-transform: rotate(-135deg);
+                    transform: rotate(-135deg);
+                }
             }
         }
         &-title {
@@ -98,7 +127,7 @@
                 font-family: $font;
                 font-weight: 300;
                 font-size: 18px;
-                color: #2b2b2b;
+                color: $brand;
                 text-transform: capitalize;
                 letter-spacing: 0.2px;
             }
@@ -115,11 +144,12 @@
                     position: relative;
                     font-family: $font;
                     font-size: 11px;
-                    color: #2b2b2b;
+                    color: $brand;
                     font-weight: 600;
                     text-transform: uppercase;
                     text-decoration: none;
-                    letter-spacing: 0.11em;
+                    letter-spacing: 0.5px;
+                    line-height: 4em;
                     
                     &:hover:after {
                         animation: pulse 1.2s 0ms $ease infinite both;
@@ -130,7 +160,7 @@
                         position: absolute;
                         width: 0; height: 1px;
                         bottom: -3px;
-                        background-color: #2b2b2b;
+                        background-color: $brand;
                     }
                 }
             }
@@ -153,7 +183,7 @@
                 position: absolute;
                 width: 15px; height: 3px;
                 bottom: 50%;
-                background-color: $brand;
+                background-color: #a1a1a1;
                 transform-origin: 100% top;
                 transition: all 300ms 100ms $ease;
             }
