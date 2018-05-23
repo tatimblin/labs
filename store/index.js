@@ -48,10 +48,8 @@ const createStore = () => {
                 // Go back to most recent lab when reach end.
                 if (state.indexedLab == state.labs.length - 1) {
                     state.prevLab = 0
-                    state.whatsThis = 'if'
                 } else {
                     state.prevLab = state.indexedLab + 1
-                    state.whatsThis = 'else'
                 }
                 // Jump to earliest tab when at beginning.
                 if (state.indexedLab == 0) {

@@ -9,8 +9,12 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Collection of front-end demos' }
     ],
+    script: [
+      { src: 'https://buttons.github.io/buttons.js', async: true, defer: true }
+    ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://use.typekit.net/zor5ibn.css' }
     ]
   },
   css: [
