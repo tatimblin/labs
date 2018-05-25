@@ -197,9 +197,11 @@
             }
         }
         &:hover .toggle-icon:before {
+            border-radius: 10px 0 10px 10px;
             transform: rotate(-25deg);
         }
         &:hover .toggle-icon:after {
+            border-radius: 0 10px 10px 10px;
             transform: rotate(25deg) translateX(15px);
         }
     }
