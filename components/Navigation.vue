@@ -60,10 +60,7 @@
 </script>
 
 <style scoped lang="scss">
-    $brand: #2b2b2b;
-    $font: "brevia", sans-serif;
-    $spacing: 15px;
-    $ease: ease;
+    @import '~assets/sass/_variables.scss';
     
     nav {
         position: relative;

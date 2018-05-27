@@ -1,0 +1,30 @@
+// Global variables, must be included in each project.
+// Use: @import '~assets/_variables.scss';
+
+
+//----------------
+// Typography
+//----------------
+
+$font: "brevia", sans-serif;
+
+
+//----------------
+// Colors
+//----------------
+
+$brand: #2b2b2b;
+
+
+//----------------
+// Sizes
+//----------------
+
+$spacing: 15px;
+
+
+//----------------
+// Animation
+//----------------
+
+$ease: cubic-bezier(0.785, 0.135, 0.15, 0.86);

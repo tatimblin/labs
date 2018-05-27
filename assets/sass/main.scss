@@ -1,3 +1,7 @@
+@import 
+    'reset',
+    'variables';
+
 body {
     background-color: #F0F0F0;
     overflow-x: hidden;
@@ -12,26 +16,27 @@ section.container {
 .container h1 {
     text-align: center;
     padding: 30px 0;
-}   
-
-.page-enter-active, .page-leave-active {
-    transition: opacity 1.5s
 }
-
-.page-enter, .page-leave-active {
-    opacity: 0;
-    transform: scale(0);
-}
-
+// Slide Previous
 .slide-enter-active {
-    animation: slide-in .8s;
+    animation: slide-in .8s $ease;
 }
 .slide-leave-active {
-    animation: slide-out .5s;
+    animation: slide-out .5s $ease;
 }
+// Slide Next
+.slide-next {
+    .slide-enter-active {
+        animation: slide-out .8s $ease alternate-reverse;
+    }
+    .slide-leave-active {
+        animation: slide-in .5s $ease alternate-reverse;
+    }
+}
+
 @keyframes slide-in {
     0% { 
-        transform: translate3d(-100vh,0,0) scale(.75) 
+        transform: translate3d(-100vw,0,0) scale(.75) 
     }
     50% { 
         transform: scale(.75) 
@@ -48,6 +53,6 @@ section.container {
         transform: scale(.75) 
     }
     100% { 
-        transform: translate3d(100vh,0,0) 
+        transform: translate3d(100vw,0,0) 
     }
 }
