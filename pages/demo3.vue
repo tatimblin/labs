@@ -9,6 +9,7 @@
 <script>
 
 export default {
+    transition: 'slide',
     data() {
         return {
             title: 'Issa demo'

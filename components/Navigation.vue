@@ -17,7 +17,7 @@
                     <a :href="`http://timblin.co/${currentLab.article}`" target="_blank">timblin.co</a>
                 </div>
                 <div class="nav-external-link">
-                    <a :href="`https://github.com/tatimblin/labs/blob/master/pages/${ currentLab.page }.vue`" target="_blank">github</a>
+                    <a :href="`https://github.com/tatimblin/labs/blob/master/pages/${ currentLab.article }.vue`" target="_blank">github</a>
                 </div>
                 <div class="nav-external-link">
                     <github-button></github-button>

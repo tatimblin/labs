@@ -1,14 +1,13 @@
 <template>
-  <section class="container">
-    <div>
-      <h1>This is demo.vue</h1>
-    </div>
-  </section>
+    <section class="container">
+    <h1>This is demo.vue</h1>
+    </section>
 </template>
 
 <script>
 
 export default {
+    transition: 'slide',
     data() {
         return {
             title: 'Issa demo'
