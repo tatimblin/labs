@@ -51,6 +51,9 @@
                 isClosed: false
             }
         },
+        props: {
+            
+        },
         methods: {
             toggleNav() {
                 this.isClosed = !this.isClosed;
@@ -83,6 +86,11 @@
             
             &-next, &-prev {
                 width: 30px; height: 1.3em;
+                transition: transform 300ms 150ms $ease;
+
+                &:hover {
+                    transform: translateX(3px) scale(1.08);
+                }
                 
                 &-icon {
                     color: $brand;
@@ -106,13 +114,20 @@
                     }
                 }
             }
-            &-next-icon {
-                margin-left: 3px;
-                
-                &:before {
-                    left: 1px; right: inherit;
-                    -webkit-transform: rotate(-135deg);
-                    transform: rotate(-135deg);
+            &-next {
+
+                &:hover {
+                    transform: translateX(-3px) scale(1.08);
+                }
+
+                &-icon {
+                    margin-left: 3px;
+                    
+                    &:before {
+                        left: 1px; right: inherit;
+                        -webkit-transform: rotate(-135deg);
+                        transform: rotate(-135deg);
+                    }
                 }
             }
         }
