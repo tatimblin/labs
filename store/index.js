@@ -10,27 +10,32 @@ const createStore = () => {
                 {
                     page: 'demo',
                     title: 'My Most Recent Demo',
-                    article: '/snippets'
+                    article: '/snippets',
+                    desc: 'A short description 0. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
                 },
                 {
                     page: 'demo1',
                     title: 'My Fourth Demo',
-                    article: ''
+                    article: '',
+                    desc: 'A short description 1.'
                 },
                 {
                     page: 'demo2',
                     title: 'My Third Demo',
-                    article: '/snippets'
+                    article: '/snippets',
+                    desc: 'A short description 2.'
                 },
                 {
                     page: 'demo3',
                     title: 'My Second Demo',
-                    article: '/snippets'
+                    article: '/snippets',
+                    desc: 'A short description 3.'
                 },
                 {
                     page: 'demo4',
                     title: 'The Very First Demo',
-                    article: '/snippets'
+                    article: '/snippets',
+                    desc: 'A short description 4.'
                 }
             ]
         },

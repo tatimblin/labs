@@ -1,4 +1,5 @@
 <template>
+<section>
     <nav v-bind:class="{active: isClosed}">
         <div class="nav">
             <div class="nav-ctrl">
@@ -13,13 +14,16 @@
                 <h1>{{ currentLab.title }}</h1>
             </div>
             <div class="nav-external">
-                <div class="nav-external-link">
-                    <a :href="`http://timblin.co/${currentLab.article}`" target="_blank">timblin.co</a>
+                <div class="nav-external-link" @click="isExpand = !isExpand">
+                    Details
+                </div>
+                <div class="nav-external-link nav-external-link__desktop">
+                    <a href="http://timblin.co/" target="_blank">timblin.co</a>
                 </div>
                 <div class="nav-external-link">
-                    <a :href="`https://github.com/tatimblin/labs/blob/master/pages/${ currentLab.article }.vue`" target="_blank">github</a>
+                    <a :href="`https://github.com/tatimblin/labs/blob/master/pages/${ currentLab.page }.vue`" target="_blank">Source</a>
                 </div>
-                <div class="nav-external-link">
+                <div class="nav-external-link nav-external-link__desktop">
                     <github-button></github-button>
                 </div>
             </div>
@@ -28,6 +32,10 @@
             <div class="toggle-icon"></div>
         </div>
     </nav>
+    <header v-bind:class="{expand: isExpand}">
+        <detail></detail>
+    </header>
+</section>
 </template>
 
 <script>
@@ -35,12 +43,14 @@
     import IconBase from './IconBase.vue'
     import IconTwitter from './IconTwitter.vue'
     import GithubButton from './GithubButton.vue'
+    import Detail from './Detail.vue'
     
     export default {
         components: {
             IconBase,
             IconTwitter,
-            GithubButton
+            GithubButton,
+            Detail
         },
         computed: {
             ...mapState(['page', 'labs', 'indexedLab']),
@@ -48,7 +58,8 @@
         },
         data() {
             return {
-                isClosed: false
+                isClosed: false,
+                isExpand: false
             }
         },
         props: {
@@ -86,10 +97,10 @@
             
             &-next, &-prev {
                 width: 30px; height: 1.3em;
-                transition: transform 300ms 150ms $ease;
+                transition: transform 400ms 75ms $ease;
 
                 &:hover {
-                    transform: translateX(3px) scale(1.08);
+                    transform: translateX(3px) scale(.83);
                 }
                 
                 &-icon {
@@ -117,7 +128,7 @@
             &-next {
 
                 &:hover {
-                    transform: translateX(-3px) scale(1.08);
+                    transform: translateX(-3px) scale(.83);
                 }
 
                 &-icon {
@@ -150,29 +161,37 @@
             margin-left: auto;
             
             &-link {
-                padding: 0 0 0 15px;
+                position: relative;
+                margin: 0 0 0 15px;
+                font-family: $font;
+                font-size: 11px;
+                color: $brand;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                cursor: pointer;
+
+                &:hover:after {
+                    animation: pulse 1.2s 0ms $ease infinite both;
+                }
                 
+                &:after {
+                    content: '';
+                    position: absolute;
+                    width: 0; height: 1px;
+                    right: 0;
+                    bottom: -5px;
+                    background-color: $brand;
+                }
+
                 a {
-                    position: relative;
-                    font-family: $font;
-                    font-size: 11px;
-                    color: $brand;
-                    font-weight: 600;
-                    text-transform: uppercase;
                     text-decoration: none;
-                    letter-spacing: 0.5px;
-                    line-height: 4em;
-                    
-                    &:hover:after {
-                        animation: pulse 1.2s 0ms $ease infinite both;
-                    }
-                    
-                    &:after {
-                        content: '';
-                        position: absolute;
-                        width: 0; height: 1px;
-                        bottom: -3px;
-                        background-color: $brand;
+                }
+
+                &__desktop {
+
+                    @include smaller($screen-md) {
+                        display: none;
                     }
                 }
             }
@@ -252,11 +271,23 @@
         }
         75% {
             width: 100%;
+            left: none;
             right: 0 !important;
         }
         100% {
             width: 0%;
             right: 0 !important;
+        }
+    }
+
+    header {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        height:0;
+        transition: height 600ms 50ms $ease;
+
+        &.expand {
+            height: 30vh;
         }
     }
 </style>
