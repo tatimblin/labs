@@ -48,25 +48,40 @@ h3 {
     max-width: $screen-md;
     height: 100%;
     margin: $spacing*2 auto;
-    padding-right: 50px;
     overflow-y: scroll;
 
     &-content {
         display: flex;
+        flex-direction: column;
+
+        @include bigger($screen-xs) {
+            flex-direction: row;
+        }
 
         div {
+            margin: $spacing 0;
             padding: 0 $spacing;
             line-height: 2em;
             font-family: montserrat;
             font-size: 12px;
             letter-spacing: 0.06em;
+
+            @include bigger($screen-xs) {
+                margin: 0;
+            }
         }
         &-desc p {
-            columns: 2;
-            column-gap: $spacing*2;
+
+            @include bigger($screen-sm) {
+                columns: 2;
+                column-gap: $spacing*2;
+            }
         }
         &-res {
-            max-width: 50%;
+
+            @include bigger($screen-sm) {
+                max-width: 50%;
+            }
 
             ul {
                 list-style-type: circle;
@@ -81,12 +96,14 @@ h3 {
         }
     }
     &-meta {
+        margin: 0 0 $spacing*2 0;
         padding: $spacing*2 $spacing;
         font-family: montserrat;
         font-size: 10px;
         letter-spacing: 0.16em;
         text-transform: uppercase;
         color: lighten($brand, 50%);
+        line-height: 1.5em;
     }
 }
 

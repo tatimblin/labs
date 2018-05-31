@@ -286,7 +286,7 @@
         transition: height 600ms 50ms $ease;
 
         &.expand {
-            height: 10vh;
+            height: 30vh;
         }
     }
 </style>
