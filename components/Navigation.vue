@@ -281,13 +281,12 @@
     }
 
     header {
-        overflow-x: hidden;
-        overflow-y: scroll;
+        overflow: hidden;
         height:0;
         transition: height 600ms 50ms $ease;
 
         &.expand {
-            height: 30vh;
+            height: 10vh;
         }
     }
 </style>

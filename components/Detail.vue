@@ -1,12 +1,23 @@
 <template>
     <section class="detail">
-        <div class="detail-desc">
-            <h3>Description</h3>
-            <p>{{ labs[indexedLab].desc }}</p>
+        <div class="detail-content">
+            <div class="detail-content-desc">
+                <h3>About This Experiment</h3>
+                <p>{{ labs[indexedLab].desc }}</p>
+            </div>
+            <div class="detail-content-res">
+                <h3>Resources</h3>
+                <ul>
+                    <li>Vue</li>
+                    <li>Codepen</li>
+                    <li>Css-Tricks</li>
+                    <li>Tympanus</li>
+                    <li><a href="">Timblin.co</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="detail-res">
-            <h3>Resources</h3>
-            resources here!
+        <div class="detail-meta">
+            <p>Labs by Tristan Timblin • <a href="" target="_blank">timblin.co</a> • Reach out on <a href="" target="_blank">Twitter</a></p>
         </div>
     </section>
 </template>
@@ -24,17 +35,58 @@
 <style lang="scss">
 @import '~assets/sass/_variables.scss';
 
-.detail {
-    display: flex;
-    max-width: $screen-md;
-    margin: $spacing*2 auto;
+h3 {
+    padding: 0 0 $spacing 0;
+    font-family: $font;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: .16em;
+    font-weight: 600;
+}
 
-    div {
-        width: 50%;
-        padding: 0 $spacing;
+.detail {
+    max-width: $screen-md;
+    height: 100%;
+    margin: $spacing*2 auto;
+    padding-right: 50px;
+    overflow-y: scroll;
+
+    &-content {
+        display: flex;
+
+        div {
+            padding: 0 $spacing;
+            line-height: 2em;
+            font-family: montserrat;
+            font-size: 12px;
+            letter-spacing: 0.06em;
+        }
+        &-desc p {
+            columns: 2;
+            column-gap: $spacing*2;
+        }
+        &-res {
+            max-width: 50%;
+
+            ul {
+                list-style-type: circle;
+                list-style-position: inside;
+
+                li {
+                    a {
+                        color: $brand;
+                    }
+                }
+            }
+        }
     }
-    &-desc {
-        line-height: 3em;
+    &-meta {
+        padding: $spacing*2 $spacing;
+        font-family: montserrat;
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: lighten($brand, 50%);
     }
 }
 
