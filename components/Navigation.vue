@@ -11,11 +11,11 @@
                 </nuxt-link>
             </div>
             <div class="nav-title">
-                <h1>{{ currentLab.title }}</h1>
+                <transition name="swipe"><h1>{{ currentLab.title }}</h1></transition>
             </div>
             <div class="nav-external">
-                <div class="nav-external-link" @click="isExpand = !isExpand">
-                    Details
+                <div class="nav-external-link" @click="toggleDetail">
+                    {{ detail }}
                 </div>
                 <div class="nav-external-link nav-external-link__desktop">
                     <a href="http://timblin.co/" target="_blank">timblin.co</a>
@@ -59,7 +59,8 @@
         data() {
             return {
                 isClosed: false,
-                isExpand: false
+                isExpand: false,
+                detail: '+ Details'
             }
         },
         props: {
@@ -68,6 +69,18 @@
         methods: {
             toggleNav() {
                 this.isClosed = !this.isClosed;
+                if (this.isExpand) {
+                    this.isExpand = !this.isExpand;
+                    this.detail = '+ Details';
+                }
+            },
+            toggleDetail() {
+                this.isExpand = !this.isExpand;
+                if (this.detail == '+ Details') {
+                    this.detail = '- Close';
+                } else {
+                    this.detail = '+ Details';
+                }
             }
         }
     }
@@ -197,7 +210,18 @@
             }
         }
     }
+
+
+    // Transition lab title
+    .swipe-enter-active, .swipe-leave-active {
+        transition: opacity .5s;
+    }
+    .swipe-enter, .swipe-leave-to {
+        opacity: 0;
+    }
+
     
+    // Open close navigation
     .toggle {
         position: absolute;
         width: 18px * 2; height: 18px*2;
@@ -286,7 +310,7 @@
         transition: height 600ms 50ms $ease;
 
         &.expand {
-            height: 30vh;
+            height: 320px;
         }
     }
 </style>
