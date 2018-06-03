@@ -14,8 +14,17 @@
                 <transition name="swipe"><h1>{{ currentLab.title }}</h1></transition>
             </div>
             <div class="nav-external">
-                <div class="nav-external-link" @click="toggleDetail">
-                    {{ detail }}
+                <div class="nav-external-link">
+                    <transition name="swipe" mode="out-in">
+                        <div class="nav-external-link-close"
+                            v-if="isExpand" 
+                            @click="toggleDetail"
+                            key="expand_close">Close</div>
+                        <div class="nav-external-link-open"
+                            v-else 
+                            @click="toggleDetail"
+                            key="expand_detail">Details</div>
+                    </transition>
                 </div>
                 <div class="nav-external-link nav-external-link__desktop">
                     <a href="http://timblin.co/" target="_blank">timblin.co</a>
@@ -59,8 +68,7 @@
         data() {
             return {
                 isClosed: false,
-                isExpand: false,
-                detail: '+ Details'
+                isExpand: false
             }
         },
         props: {
@@ -76,11 +84,6 @@
             },
             toggleDetail() {
                 this.isExpand = !this.isExpand;
-                if (this.detail == '+ Details') {
-                    this.detail = '- Close';
-                } else {
-                    this.detail = '+ Details';
-                }
             }
         }
     }
@@ -176,6 +179,7 @@
             &-link {
                 position: relative;
                 margin: 0 0 0 15px;
+                padding: 0 0 20px 0;
                 font-family: $font;
                 font-size: 11px;
                 color: $brand;
@@ -183,6 +187,7 @@
                 text-transform: uppercase;
                 letter-spacing: 0.5px;
                 cursor: pointer;
+                overflow: hidden;
 
                 &:hover:after {
                     animation: pulse 1.2s 0ms $ease infinite both;
@@ -214,10 +219,19 @@
 
     // Transition lab title
     .swipe-enter-active, .swipe-leave-active {
-        transition: opacity .5s;
+        animation: swipe-text 600ms 0ms 1 backwards;
     }
     .swipe-enter, .swipe-leave-to {
-        opacity: 0;
+        animation: swipe-text 600ms 0ms 1 forwards;
+    }
+
+    @keyframes swipe-text {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-1em);
+        }
     }
 
     
