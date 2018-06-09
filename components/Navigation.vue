@@ -11,7 +11,9 @@
                 </nuxt-link>
             </div>
             <div class="nav-title">
-                <transition name="swipe"><h1>{{ currentLab.title }}</h1></transition>
+                <transition name="swipe" mode="out-in">
+                    <h1>{{ currentLab.title }}</h1>
+                </transition>
             </div>
             <div class="nav-external">
                 <div class="nav-external-link">
