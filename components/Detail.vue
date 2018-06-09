@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="detail-meta">
-            <p>Labs by Tristan Timblin • <a href="" target="_blank">timblin.co</a> • Reach out on <a href="" target="_blank">Twitter</a></p>
+            <p>Labs by Tristan Timblin • <a href="" target="_blank">timblin.co</a> • Reach out about contributing on <a href="" target="_blank">Twitter</a></p>
         </div>
     </section>
 </template>

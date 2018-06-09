@@ -179,7 +179,6 @@
             &-link {
                 position: relative;
                 margin: 0 0 0 15px;
-                padding: 0 0 20px 0;
                 font-family: $font;
                 font-size: 11px;
                 color: $brand;
@@ -219,7 +218,8 @@
 
     // Transition lab title
     .swipe-enter-active, .swipe-leave-active {
-        animation: swipe-text 600ms 0ms 1 backwards;
+        transform: translateY(-1em);
+        animation: swipe-text 600ms 0ms 1 reverse forwards;
     }
     .swipe-enter, .swipe-leave-to {
         animation: swipe-text 600ms 0ms 1 forwards;
@@ -228,9 +228,18 @@
     @keyframes swipe-text {
         0% {
             transform: translateY(0);
+            opacity: 0;
+        }
+        1% {
+            opacity: 1;
+        }
+        80% {
+            transform: translateY(-1em);
+            opacity: 1;
         }
         100% {
             transform: translateY(-1em);
+            opacity: 0;
         }
     }
 
