@@ -1,4 +1,5 @@
 <template>
+    <div class="detail__scroll">
     <section class="detail">
         <div class="detail-content">
             <div class="detail-content-desc">
@@ -20,6 +21,7 @@
             <p>Labs by Tristan Timblin • <a href="" target="_blank">timblin.co</a> • Reach out about contributing on <a href="" target="_blank">Twitter</a></p>
         </div>
     </section>
+    </div>
 </template>
 
 <script>
@@ -44,11 +46,25 @@ h3 {
     font-weight: 600;
 }
 
-.detail {
+.detail__scroll {
+    position: relative;
+    width: 100%; height: 100%;
     max-width: $screen-md;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.detail {
+    position: absolute;
     height: 100%;
+    left: 0;
     margin: $spacing*2 auto;
+    padding: $spacing*2 0;
     overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     &-content {
         display: flex;

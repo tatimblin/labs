@@ -12,7 +12,14 @@
             </div>
             <div class="nav-title">
                 <transition name="swipe" mode="out-in">
-                    <h1>{{ currentLab.title }}</h1>
+                    <div
+                        v-if="isExpand"
+                        key="expand_close"
+                        >{{ currentLab.title }}</div>
+                    <div
+                        v-else
+                        key="expand_detail"
+                        >{{ prevLab.title }}</div>
                 </transition>
             </div>
             <div class="nav-external">
