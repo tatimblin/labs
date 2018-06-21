@@ -15,11 +15,6 @@
         },
         computed: {
             ...mapState(['slideNext'])
-        },
-        async asyncData ({ app, route }) {
-            return {
-                project: await app.$content('/projects').get(route.path.replace(/\/$/, ''))
-            }
         }
     }
 </script>
