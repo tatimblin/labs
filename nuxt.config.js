@@ -62,7 +62,7 @@ module.exports = {
   ** Register middleware files
   */
   router: {
-    base: '/lab/',
+    base: '',
     middleware: 'pages'
   }
 }
