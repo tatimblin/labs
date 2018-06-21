@@ -5,7 +5,7 @@ const createStore = () => {
         state: {
             page: 'demo',
             indexedLab: 0,
-            templabs: ['demo', 'demo1', 'demo2', 'demo3', 'demo4'],
+            slideNext: false,
             labs: [
                 {
                     page: 'demo',

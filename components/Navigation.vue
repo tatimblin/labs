@@ -2,24 +2,25 @@
 <section>
     <nav v-bind:class="{active: isClosed}">
         <div class="nav">
-            <div class="nav-ctrl">
+            <div class="nav-ctrl"
+                @click="changeLab" >
                 <nuxt-link :to="`${ nextLab.page }`" class="nav-ctrl-next">
-                    <div class="nav-ctrl-next-icon"></div>
+                    <div @mouseover="$store.state.slideNext = true" class="nav-ctrl-next-icon"></div>
                 </nuxt-link>
                 <nuxt-link :to="`${ prevLab.page }`" class="nav-ctrl-prev">
-                    <div class="nav-ctrl-prev-icon"></div>
+                    <div @mouseover="$store.state.slideNext = false" class="nav-ctrl-prev-icon"></div>
                 </nuxt-link>
             </div>
             <div class="nav-title">
                 <transition name="swipe" mode="out-in">
                     <div
-                        v-if="isExpand"
+                        v-if="isChange"
                         key="expand_close"
                         >{{ currentLab.title }}</div>
                     <div
                         v-else
                         key="expand_detail"
-                        >{{ prevLab.title }}</div>
+                        >{{ currentLab.title }}</div>
                 </transition>
             </div>
             <div class="nav-external">
@@ -71,13 +72,14 @@
             Detail
         },
         computed: {
-            ...mapState(['page', 'labs', 'indexedLab']),
+            ...mapState(['page', 'labs', 'slideNext']),
             ...mapGetters(['currentLab', 'prevLab', 'nextLab'])
         },
         data() {
             return {
                 isClosed: false,
-                isExpand: false
+                isExpand: false,
+                isChange: false
             }
         },
         props: {
@@ -88,11 +90,13 @@
                 this.isClosed = !this.isClosed;
                 if (this.isExpand) {
                     this.isExpand = !this.isExpand;
-                    this.detail = '+ Details';
                 }
             },
             toggleDetail() {
                 this.isExpand = !this.isExpand;
+            },
+            changeLab() {
+                this.isChange = !this.isChange;
             }
         }
     }
@@ -125,7 +129,7 @@
                 transition: transform 400ms 75ms $ease;
 
                 &:hover {
-                    transform: translateX(3px) scale(.83);
+                    transform: translateX(3px) scale(1.0);
                 }
                 
                 &-icon {
@@ -133,16 +137,16 @@
                     position: absolute;
                     margin-left: 2px;
                     margin-top: 10px;
-                    width: 16px;
+                    width: 14px;
                     height: 1px;
                     background-color: currentColor;
                     &:before {
                         content: '';
                         position: absolute;
                         right: 1px;
-                        top: -5px;
-                        width: 10px;
-                        height: 10px;
+                        top: -4px;
+                        width: 8px;
+                        height: 8px;
                         border-top: solid 1px currentColor;
                         border-right: solid 1px currentColor;
                         -webkit-transform: rotate(45deg);
@@ -153,7 +157,7 @@
             &-next {
 
                 &:hover {
-                    transform: translateX(-3px) scale(.83);
+                    transform: translateX(-3px) scale(1.0);
                 }
 
                 &-icon {
@@ -170,6 +174,7 @@
         &-title {
             padding: 0 $spacing;
             border-left: 1px solid $brand;
+            overflow: hidden;
             
             h1 {
                 font-family: $font;
