@@ -4,10 +4,10 @@
         <div class="nav">
             <div class="nav-ctrl"
                 @click="changeLab" >
-                <nuxt-link :to="`${ nextLab.page }`" class="nav-ctrl-next">
+                <nuxt-link :to="`/${ nextLab.page }`" class="nav-ctrl-next">
                     <div @mouseover="$store.state.slideNext = true" class="nav-ctrl-next-icon"></div>
                 </nuxt-link>
-                <nuxt-link :to="`${ prevLab.page }`" class="nav-ctrl-prev">
+                <nuxt-link :to="`/${ prevLab.page }`" class="nav-ctrl-prev">
                     <div @mouseover="$store.state.slideNext = false" class="nav-ctrl-prev-icon"></div>
                 </nuxt-link>
             </div>
