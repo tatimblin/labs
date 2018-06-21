@@ -13,7 +13,7 @@
         components: {
             Navigation
         },
-        omputed: {
+        computed: {
             ...mapState(['slideNext'])
         }
     }
