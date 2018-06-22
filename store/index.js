@@ -6,6 +6,7 @@ const createStore = () => {
             page: 'demo',
             indexedLab: 0,
             slideNext: false,
+            isClosed: false,
             labs: [
                 {
                     page: 'demo',

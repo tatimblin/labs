@@ -47,7 +47,7 @@
                 </div>
             </div>
         </div>
-        <div class="toggle" @click="toggleNav">
+        <div class="toggle" @click="$store.state.isClosed = !$store.state.isClosed">
             <div class="toggle-icon"></div>
         </div>
     </nav>
@@ -72,12 +72,11 @@
             Detail
         },
         computed: {
-            ...mapState(['page', 'labs', 'slideNext']),
+            ...mapState(['page', 'labs', 'slideNext', 'isClosed']),
             ...mapGetters(['currentLab', 'prevLab', 'nextLab'])
         },
         data() {
             return {
-                isClosed: false,
                 isExpand: false,
                 isChange: false
             }
@@ -87,7 +86,7 @@
         },
         methods: {
             toggleNav() {
-                this.isClosed = !this.isClosed;
+                $store.state.isClosed = !$store.state.isClosed;
                 if (this.isExpand) {
                     this.isExpand = !this.isExpand;
                 }

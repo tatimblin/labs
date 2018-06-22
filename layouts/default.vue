@@ -1,5 +1,5 @@
 <template>
-    <div v-bind:class="{ 'slide-next': $store.state.slideNext }">
+    <div v-bind:class="{ 'slide-next': $store.state.slideNext, 'is-closed': $store.state.isClosed }">
         <navigation/>
         <nuxt/>
     </div>
@@ -14,7 +14,7 @@
             Navigation
         },
         computed: {
-            ...mapState(['slideNext'])
+            ...mapState(['slideNext', 'isClosed'])
         }
     }
 </script>
