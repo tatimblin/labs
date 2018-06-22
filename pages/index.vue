@@ -1,14 +1,13 @@
 <template>
   <section>
-    <div class="main-head">
-      <h1>Labs by Tristan Timblin</h1>
-    </div>
-    <div class="main-list">
-      <ul>
-        <li>
-          <h2>{{ $store.state.labs }}</h2>
-        </li>
-      </ul>
+    <div class="intro-container">
+      <h1>Labs by tris timb</h1>
+      <p>the Labs is a collection of front-end experiments designed and curated by myself.</p>
+      <div class="btn">
+        <nuxt-link :to="'/'+labs[0].page">
+          Enter
+        </nuxt-link>
+      </div>
     </div>
   </section>
 </template>
@@ -18,17 +17,45 @@
 
   export default {
     layout: 'blank',
-    fetch ({store}) {
-      store.dispatch('getLabs')
-    },
+    transition: 'slide',
     computed: {
-      Labs () {
-        return this.$store.state.labs
-      }
+      ...mapState(['labs']),
     }
   }
 </script>
 
-<style> 
-    
+<style scoped lang="scss"> 
+  @import '~assets/sass/_variables.scss';
+
+  .intro-container {
+    max-width: 300px;
+    margin: 33vh auto;
+    text-align: center;
+    font-family: $font;
+
+    h1 {
+      margin-bottom: 15px;
+      font-size: 1.33em;
+      font-weight: 600;
+    }
+
+    p {
+      line-height: 2em;
+      font-size: 0.66em;
+      letter-spacing: 0.06em;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 15px 0;
+      padding: 2px 12px;
+      transform: rotateZ(-3deg);
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 1em;
+        letter-spacing: 0.11em;
+      }
+    }
+  }
 </style>

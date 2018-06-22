@@ -35,6 +35,24 @@ section.container {
 // Page Transitions
 //----------------
 
+
+// Fade Homepage
+.fade-enter-active {
+    animation: fade-in .8s $ease;
+}
+.fade-leave-active {
+    animation: fade-in .5s $ease;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 // Slide Previous
 .slide-enter-active {
     animation: slide-in .8s $ease;
