@@ -112,7 +112,7 @@ h3 {
         }
     }
     &-meta {
-        margin: 0 0 $spacing*2 0;
+        margin: 0 0 $spacing*4 0;
         padding: $spacing*2 $spacing;
         font-family: montserrat;
         font-size: 10px;
