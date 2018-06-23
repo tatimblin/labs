@@ -49,7 +49,7 @@
       display: inline-block;
       margin: 15px 0;
       padding: 2px 12px;
-      transform: rotateZ(-3deg);
+      transform: rotateZ(-2deg);
       a {
         text-decoration: none;
         text-transform: uppercase;

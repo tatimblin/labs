@@ -52,7 +52,7 @@ const createStore = () => {
             }
         },
         mutations: {
-            updatePage(state, pageName) {
+            updatePage (state, pageName) {
                 state.page = pageName
                 //state.indexedLab = state.templabs.indexOf(state.page)
                 state.indexedLab = state.labs.findIndex(x => x.page === state.page)
@@ -68,6 +68,9 @@ const createStore = () => {
                 } else {
                     state.nextLab = state.indexedLab - 1
                 }
+            },
+            closeNav (state) {
+                state.isClosed = !state.isClosed;
             }
         }
     })

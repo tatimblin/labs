@@ -16,18 +16,18 @@
                     <div
                         v-if="isChange"
                         key="expand_close"
-                        >{{ currentLab.title }}</div>
+                        ><h1>{{ currentLab.title }}</h1></div>
                     <div
                         v-else
                         key="expand_detail"
-                        >{{ currentLab.title }}</div>
+                        ><h1>{{ currentLab.title }}</h1></div>
                 </transition>
             </div>
             <div class="nav-external">
                 <div class="nav-external-link">
                     <transition name="swipe" mode="out-in">
                         <div class="nav-external-link-close"
-                            v-if="isExpand" 
+                            v-if="isDetail" 
                             @click="toggleDetail"
                             key="expand_close">Close</div>
                         <div class="nav-external-link-open"
@@ -47,11 +47,11 @@
                 </div>
             </div>
         </div>
-        <div class="toggle" @click="$store.state.isClosed = !$store.state.isClosed">
+        <div class="toggle" @click="toggleNav">
             <div class="toggle-icon"></div>
         </div>
     </nav>
-    <header v-bind:class="{expand: isExpand}">
+    <header v-bind:class="{expand: isDetail}">
         <detail></detail>
     </header>
 </section>
@@ -77,7 +77,7 @@
         },
         data() {
             return {
-                isExpand: false,
+                isDetail: false,
                 isChange: false
             }
         },
@@ -86,13 +86,14 @@
         },
         methods: {
             toggleNav() {
-                $store.state.isClosed = !$store.state.isClosed;
-                if (this.isExpand) {
-                    this.isExpand = !this.isExpand;
+                // vuex mutation
+                this.$store.commit('closeNav')
+                if (this.isDetail) {
+                    this.isDetail = !this.isDetail;
                 }
             },
             toggleDetail() {
-                this.isExpand = !this.isExpand;
+                this.isDetail = !this.isDetail;
             },
             changeLab() {
                 this.isChange = !this.isChange;
@@ -232,10 +233,10 @@
     // Transition lab title
     .swipe-enter-active, .swipe-leave-active {
         transform: translateY(-1em);
-        animation: swipe-text 350ms 0ms 1 reverse forwards;
+        animation: swipe-text 450ms 0ms 1 reverse forwards;
     }
     .swipe-enter, .swipe-leave-to {
-        animation: swipe-text 350ms 0ms 1 forwards;
+        animation: swipe-text 450ms 0ms 1 forwards;
     }
 
     @keyframes swipe-text {
@@ -247,11 +248,11 @@
             opacity: 1;
         }
         80% {
-            transform: translateY(-1em);
+            transform: translateY(-1.2em);
             opacity: 1;
         }
         100% {
-            transform: translateY(-1em);
+            transform: translateY(-1.2em);
             opacity: 0;
         }
     }
