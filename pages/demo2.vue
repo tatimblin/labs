@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section class="page">
     <div>
       <h1>This is demo2.vue</h1>
     </div>
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.container {
+.page {
     h1 {
         background-color: yellow;
     }

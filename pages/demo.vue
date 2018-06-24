@@ -1,5 +1,5 @@
 <template>
-    <section class="container">
+    <section class="page">
     <h1>This is demo.vue</h1>
     </section>
 </template>

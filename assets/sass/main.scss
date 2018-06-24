@@ -9,23 +9,24 @@ body {
 
 
 //----------------
-// Demo Container
+// Demo Page
 //----------------
 
-section.container {
+section.page {
     margin: 0 15px 15px 15px;
     box-shadow: 0 -4px 30px rgba(0,0,0,.16);
     transition: all 400ms 100ms $ease;
     z-index: 100;
+    overflow: hidden;
 }
 
-.is-closed section.container {
+.is-closed section.page {
     margin: 0;
     box-shadow: none;
     transition: all 600ms 00ms $ease;
 }
 
-.container h1 {
+.page h1 {
     text-align: center;
     padding: 30px 0;
 }
