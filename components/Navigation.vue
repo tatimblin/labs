@@ -107,8 +107,12 @@
     
     nav {
         position: relative;
-        height: 65px;
+        height: 95px;
         transition: all 600ms $ease; 
+
+        @include bigger ($screen-sm) {
+            height: 65px;
+        }
     }
     
     .nav {
@@ -221,7 +225,7 @@
 
                 &__desktop {
 
-                    @include smaller($screen-md) {
+                    @include smaller($screen-sm) {
                         display: none;
                     }
                 }

@@ -3,10 +3,10 @@
         <div class="container">
             <div class="header">
                 <h2>zine</h2>
-                <div class="background"></div>
-                <div class="header-hero">
+                <div class="background" v-bind:class="{ 'background-fade': this.scrolled}"></div>
+                <div class="header-hero" v-bind:class="{ 'header-hero-fade': this.scrolled}">
                     <div class="header-hero_inner">
-                        <h1>Title</h1>
+                        <h1>Art Ignites Change</h1>
                     </div>
                 </div>
                 <span class="caption">Philadelphia Muses by Meg Saligman</span>
@@ -65,10 +65,30 @@
 
 export default {
     transition: 'slide',
-    data() {
+    data () {
         return {
-            title: 'Issa demo'
+            scrolled: false,
+            whatsthis: 0
         }
+    },
+    methods: {
+        handleScroll () {
+            let height = document.documentElement.clientHeight;
+
+            if (height > 500) {
+                // Do what you want when you are at the bottom of the page
+                this.scrolled = true;
+                this.whatsthis = height;
+            } else {
+                this.scrolled = false;
+            }
+        }
+    },
+    beforeMount () {
+        window.addEventListener('scroll', this.handleScroll);
+    },
+    beforeDestroy () {
+        window.removeEventListener('scroll', this.handleScroll);
     }
 }
 </script>
@@ -98,6 +118,10 @@ $alt-light: $alt-dark;
 
 h1, h2, span {
     font-family: $solid;
+}
+
+h1 {
+    font-size: 6.5em;
 }
 
 h3 {
@@ -133,25 +157,52 @@ a { color: $alt-dark; }
 
 .header {
     position: relative;
+    height: 550px + $spacing*4;
     margin: $spacing*2 0;
 
     h2 {
         margin-bottom: $spacing;
     }
+    span {
+        position: absolute;
+        bottom: 0px;
+    }
     &-hero {
-        width: 100%; height: 550px;
-        background-color: #ccc;
+        position:absolute;
+        width: 100%; height:550px;
+        background-image: url('/knockout-text/philadelphia-mural-hero.jpg');
+        background-position: 20%;
+        background-size:cover;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: brightness(5%) grayscale(0%);
+        transition: all 900ms $ease;
+
+        &_inner {
+            max-width:90%;
+            margin: 150px auto;
+            text-align:center;
+        }
+        &-fade {
+            filter: brightness(90%) grayscale(0%);
+        }
     }
 }
 
 .background {
     position:absolute;
-	width:100%; height:550px;
+    width:100%; height:550px;
 	background: url('/knockout-text/philadelphia-mural-hero.jpg');
     background-position: 20% center;
 	background-size:cover;
 	opacity:1;
-	filter: blur(0px) brightness(120%) contrast(70%);
+    filter: blur(0px) brightness(110%) contrast(80%);
+    transition: all 600ms 150ms $ease;
+    
+    &-fade {
+        filter: blur(4px);
+	    opacity:0;
+    }
 }
 
 .body {
@@ -197,7 +248,7 @@ a { color: $alt-dark; }
         display: flex;
         justify-content: space-between;
         align-items: baseline;
-        padding: $spacing*2 $spacing;
+        padding: $spacing*2 $spacing $spacing $spacing;
         border: 1px solid $alt-light;
 
         @include smaller ($screen-xs) {
