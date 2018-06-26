@@ -252,12 +252,20 @@
             opacity: 1;
         }
         80% {
-            transform: translateY(-1.2em);
+            transform: translateY(-2.2em);
             opacity: 1;
+
+            @include bigger ($screen-sm) {
+                transform: translateY(-1.2em);
+            }
         }
         100% {
-            transform: translateY(-1.2em);
+            transform: translateY(-2.2em);
             opacity: 0;
+
+            @include bigger ($screen-sm) {
+                transform: translateY(-1.2em);
+            }
         }
     }
 
