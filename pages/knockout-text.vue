@@ -1,8 +1,16 @@
 <template>
     <section class="page">
         <div class="container">
-            <div class="header">
+            <div class="nav">
                 <h2>zine</h2>
+                <ul class="header-nav">
+                    <li>art</li>
+                    <li>culture</li>
+                    <li>style</li>
+                    <li>living</li>
+                </ul>
+            </div>
+            <div class="header">
                 <div class="background" v-bind:class="{ 'background-fade': this.scrolled}"></div>
                 <div class="header-hero" v-bind:class="{ 'header-hero-fade': this.scrolled}">
                     <div class="header-hero_inner">
@@ -21,14 +29,16 @@
                     </div>
                 </div>
                 <div class="copy">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim consectetur, itaque non hic nobis beatae ea debitis ad iure suscipit? At distinctio fugiat unde consequatur nostrum earum, accusantium nihil ipsum?</p>
+                    <p>We create art with others to transform places, individuals, communities and institutions. Through this work, we establish new standards of excellence in the practice of public and contemporary art.</p>
+                    <p>Our process empowers artists to be change agents, stimulates dialogue about critical issues, and builds bridges of connection and understanding.</p>
+                    <p>Our work is created in service of a larger movement that values equity, fairness and progress across all of society.</p>
                 </div>
                 <div class="callout">
                     <h3>invest in mural arts</h3>
                     <div class="callout-form" contenteditable>signup</div>
                 </div>
                 <div class="copy">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim consectetur, itaque non hic nobis beatae ea debitis ad iure suscipit? At distinctio fugiat unde consequatur nostrum earum, accusantium nihil ipsum?</p>
+                    <p>We listen with empathetic ears to understand the aspirations of our partners and participants. And through beautiful collaborative art, we provide people with the inspiration and tools to seize their own future.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-img">
@@ -67,18 +77,15 @@ export default {
     transition: 'slide',
     data () {
         return {
-            scrolled: false,
-            whatsthis: 0
+            scrolled: false
         }
     },
     methods: {
         handleScroll () {
-            let height = document.documentElement.clientHeight;
-
-            if (height > 500) {
-                // Do what you want when you are at the bottom of the page
+            var height;
+            height = document.documentElement.scrollTop;
+            if (height > 50) {
                 this.scrolled = true;
-                this.whatsthis = height;
             } else {
                 this.scrolled = false;
             }
@@ -103,7 +110,7 @@ $outline: 'Kumar One Outline', cursive;
 $body: 'Helvetica Neue', sans-serif;
 $text: #2b2b2b;
 $alt-dark: #3F41A6;
-$alt-light: $alt-dark;
+$alt-light: #F34B2F;
 
 .page {
     background-color: lighten(#DC483C, 40%);
@@ -121,7 +128,15 @@ h1, h2, span {
 }
 
 h1 {
-    font-size: 6.5em;
+    font-size: 4em;
+    line-height: 1.5em;
+
+    @include bigger ($screen-md) { font-size: 5em; }
+    @include bigger ($screen-lg) { font-size: 6.5em; }
+}
+
+h2 {
+    font-size: 2em;
 }
 
 h3 {
@@ -155,9 +170,47 @@ a { color: $alt-dark; }
     padding: $spacing;
 }
 
+.nav {
+    h2 {
+        padding: $spacing*2 0 $spacing 0;
+    }
+    ul {
+        
+
+        li {
+            position: relative;
+            display: inline-block;
+            width: 50%;
+            margin: $spacing 0;
+            font-family: $outline;
+            font-size: 0.9em;
+            cursor: pointer;
+
+            &:hover {
+                font-family: $solid;
+                color: $alt-dark;
+
+                &:after {
+                    width: 66%;
+                }
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                width: 0%; height: 60%;
+                left: 0; bottom: 0;
+                background-color: $alt-light;
+                opacity: 0.33;
+                transition: all 300ms $ease;
+            }
+        }
+    }
+}
+
 .header {
     position: relative;
-    height: 550px + $spacing*4;
+    height: 550px + $spacing*2;
     margin: $spacing*2 0;
 
     h2 {
@@ -173,15 +226,19 @@ a { color: $alt-dark; }
         background-image: url('/knockout-text/philadelphia-mural-hero.jpg');
         background-position: 20%;
         background-size:cover;
+        border-bottom: 1px solid $alt-light;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         filter: brightness(5%) grayscale(0%);
-        transition: all 900ms $ease;
+        transition: all 400ms $ease;
 
         &_inner {
             max-width:90%;
-            margin: 150px auto;
+            margin: 100px auto;
             text-align:center;
+
+            @include bigger ($screen-sm) { margin-top: 180px; }
+            @include bigger ($screen-lg) { margin-top: 100px; }
         }
         &-fade {
             filter: brightness(90%) grayscale(0%);
@@ -197,7 +254,7 @@ a { color: $alt-dark; }
 	background-size:cover;
 	opacity:1;
     filter: blur(0px) brightness(110%) contrast(80%);
-    transition: all 600ms 150ms $ease;
+    transition: all 400ms 100ms $ease;
     
     &-fade {
         filter: blur(4px);
@@ -237,11 +294,15 @@ a { color: $alt-dark; }
         }
     } 
     .copy {
-        margin: $spacing*2 0;
+        margin: $spacing 0;
 
         @include bigger($screen-sm) {
             width: 300px;
-            margin: $spacing*4 auto;
+            margin: $spacing*2 auto;
+        }
+
+        p {
+            margin: $spacing 0;
         }
     }
     .callout {
@@ -249,7 +310,7 @@ a { color: $alt-dark; }
         justify-content: space-between;
         align-items: baseline;
         padding: $spacing*2 $spacing $spacing $spacing;
-        border: 1px solid $alt-light;
+        border: 1px solid $alt-dark;
 
         @include smaller ($screen-xs) {
             flex-direction: column;
