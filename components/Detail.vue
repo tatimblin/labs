@@ -4,7 +4,7 @@
         <div class="detail-content">
             <div class="detail-content-desc">
                 <h3>About This Experiment</h3>
-                <p>{{ labs[indexedLab].desc }}</p>
+                <p>{{ currentLab.desc }}</p>
             </div>
             <div class="detail-content-res">
                 <h3>Resources</h3>
@@ -25,11 +25,11 @@
 </template>
 
 <script>
-    import { mapState, mapGetters } from 'vuex'
+    import { mapGetters } from 'vuex'
 
     export default {
         computed: {
-            ...mapState(['labs', 'indexedLab']),
+            ...mapGetters(['currentLab'])
         }
     }
 </script>

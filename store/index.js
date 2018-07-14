@@ -22,25 +22,25 @@ const createStore = () => {
                 },
                 {
                     page: 'demo1',
-                    title: 'My Fourth Demo',
+                    title: 'My First Demo',
                     article: '',
                     desc: 'A short description 1.'
                 },
                 {
                     page: 'demo2',
-                    title: 'My Third Demo',
+                    title: 'My Second Demo',
                     article: '/snippets',
                     desc: 'A short description 2.'
                 },
                 {
                     page: 'demo3',
-                    title: 'My Second Demo',
+                    title: 'My Third Demo',
                     article: '/snippets',
                     desc: 'A short description 3.'
                 },
                 {
                     page: 'demo4',
-                    title: 'The Very First Demo',
+                    title: 'The First and Fourth Demo',
                     article: '/snippets',
                     desc: 'A short description 4.'
                 }
@@ -51,10 +51,10 @@ const createStore = () => {
                 return state.labs[state.indexedLab]
             },
             prevLab: state => {
-                return state.labs[state.prevLab]
+                return state.labs[state.prevLab].page
             },
             nextLab: state => {
-                return state.labs[state.nextLab]
+                return state.labs[state.nextLab].page
             }
         },
         mutations: {

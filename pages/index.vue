@@ -4,7 +4,7 @@
       <h1>Labs by tris timb</h1>
       <p>the Labs is a collection of front-end experiments designed and curated by myself.</p>
       <div class="btn">
-        <nuxt-link :to="'/'+labs[0].page">
+        <nuxt-link :to="'/labs/'+labs[0].page">
           Enter
         </nuxt-link>
       </div>

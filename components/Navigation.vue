@@ -4,14 +4,14 @@
         <div class="nav">
             <div class="nav-ctrl"
                 @click="changeLab" >
-                <nuxt-link :to="'/'+nextLab.page" class="nav-ctrl-next">
+                <nuxt-link :to="'/'+nextLab" class="nav-ctrl-next">
                     <div @click="$store.state.slideNext = true" class="nav-ctrl-next-icon"></div>
                 </nuxt-link>
-                <nuxt-link :to="'/'+prevLab.page" class="nav-ctrl-prev">
+                <nuxt-link :to="'/'+prevLab" class="nav-ctrl-prev">
                     <div @click="$store.state.slideNext = false" class="nav-ctrl-prev-icon"></div>
                 </nuxt-link>
             </div>
-            <div class="nav-title">
+            <div class="nav-title" v-if="currentLab">
                 <transition name="swipe" mode="out-in">
                     <div
                         v-if="isChange"
@@ -39,7 +39,7 @@
                 <div class="nav-external-link nav-external-link__desktop">
                     <a href="http://timblin.co/" target="_blank">timblin.co</a>
                 </div>
-                <div class="nav-external-link">
+                <div class="nav-external-link" v-if="currentLab">
                     <a :href="`https://github.com/tatimblin/labs/blob/master/pages/${ currentLab.page }.vue`" target="_blank">Source</a>
                 </div>
                 <div class="nav-external-link nav-external-link__desktop">

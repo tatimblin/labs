@@ -74,6 +74,7 @@
 <script>
 
 export default {
+    layout: 'default',
     transition: 'slide',
     data () {
         return {
