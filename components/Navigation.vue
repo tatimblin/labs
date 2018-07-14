@@ -97,6 +97,9 @@
             },
             changeLab() {
                 this.isChange = !this.isChange;
+                if (this.isDetail) {
+                    this.isDetail = !this.isDetail;
+                }
             }
         }
     }

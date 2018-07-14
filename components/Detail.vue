@@ -6,14 +6,13 @@
                 <h3>About This Experiment</h3>
                 <p>{{ currentLab.desc }}</p>
             </div>
-            <div class="detail-content-res">
+            <div class="detail-content-res" v-if="currentLab.resources">
                 <h3>Resources</h3>
                 <ul>
-                    <li>Vue</li>
-                    <li>Codepen</li>
-                    <li>Css-Tricks</li>
-                    <li>Tympanus</li>
-                    <li><a href="">Timblin.co</a></li>
+                    <li v-for="(resource, index) in currentLab.resources" :key="index">
+                        <a :href="`${ resource.url }`" target="_blank">{{ resource.title }}</a>
+                    </li>
+                    <li><a href="" target="_blank">Vue.js</a></li>
                 </ul>
             </div>
         </div>
