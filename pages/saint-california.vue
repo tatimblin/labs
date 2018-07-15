@@ -29,6 +29,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '~assets/sass/_variables.scss';
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,600');
 
 .page {
@@ -38,7 +39,7 @@ export default {
 .album {
 	max-width: 400px;
     margin: 60px auto;
-    transition: all 600ms ease;
+    transition: all 600ms $ease;
 	
 	&-cover {
 		position: relative;
@@ -46,7 +47,7 @@ export default {
 		background-image: url('https://lh3.googleusercontent.com/p5fsGueNHDLOctpmRgPlyNsLiCMjdF4sFdm8jJ2dMiZU5rWCSY1bprrDMr4-7vF87KynQX05ew=s1024-c-e100-rwu-v1');
 		background-size: cover;
         background-position: bottom center;
-        transition: all 600ms ease;
+        transition: all 600ms $ease;
         	
 		&:before {
 			content:'';
@@ -60,7 +61,7 @@ export default {
 	&-desc {
 		max-width: 400px;
         margin: 0 auto;
-        transition: all 600ms ease;
+        transition: all 600ms $ease;
         font-family: 'Montserrat', sans-serif;
         font-size: 14px;
         color: #2b2b2b;

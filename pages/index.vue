@@ -8,6 +8,9 @@
           Enter
         </nuxt-link>
       </div>
+      <ul>
+        <li v-for="lab in labs" :key="lab.index">{{ lab.title }}</li>
+      </ul>
     </div>
   </section>
 </template>
