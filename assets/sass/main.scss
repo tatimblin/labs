@@ -22,11 +22,23 @@ section.page {
 }
 
 .is-closed section.page {
-    margin: 0;
+    max-width: 100%;
+    margin: 0 auto;
     box-shadow: none;
     transition: all 600ms 00ms $ease;
 }
 
+// use class .limit-width on page wrapper to prevent full screen desktop.
+#__layout div:not(.is-closed) { 
+    .limit-width {
+        max-width: $screen-lg;
+        margin: 0 auto;
+
+        @include smaller($container-lg) {
+            margin: 0 15px 15px 15px;
+        }
+    }
+}
 .page h1 {
     text-align: center;
     padding: 30px 0;

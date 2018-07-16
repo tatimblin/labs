@@ -1,5 +1,5 @@
 <template>
-    <section class="page">
+    <section class="page limit-width">
         <div class="container">
             <div class="nav">
                 <h2>zine</h2>
