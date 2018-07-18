@@ -8,6 +8,14 @@
 				<h4>ieuan</h4>
 			</div>
 		</div>
+        <div class="content">
+            <div class="content-tweet">tweet</div>
+            <div class="content-lyrics" v-if="playing">
+                <div class="content-lyrics-line" v-for="lyric in lyrics" :key="lyric.index">
+                    {{ lyric.line }}
+                </div>
+            </div>
+        </div>
     </section>
 </template>
 
@@ -17,7 +25,13 @@ export default {
     transition: 'slide',
     data() {
         return {
-            playing: false
+            playing: false,
+            lyrics: [
+                {line: 'Eighteen with a Jesus piece, and he tellin me he does not feel safe'},
+                {line: 'Well I am just like you, knives in my back'},
+                {line: 'Tell me your name'},
+                {line: 'And he said'}
+            ]
         }
     },
     methods: {
@@ -31,6 +45,8 @@ export default {
 <style scoped lang="scss">
 @import '~assets/sass/_variables.scss';
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,600');
+
+$width: 400px;
 
 .page {
     background-color: #EBEBEB;
@@ -59,7 +75,7 @@ export default {
 		}
 	}
 	&-desc {
-		max-width: 400px;
+		max-width: $width;
         margin: 0 auto;
         transition: all 600ms $ease;
         font-family: 'Montserrat', sans-serif;
@@ -98,6 +114,27 @@ export default {
         .album-desc {
             transform: translateY(-200%);
             color: #fff;
+        }
+    }
+}
+
+// Song Lyrics
+.content {
+    display: flex;
+    max-width: $width + 100px;
+    margin: 0 auto;
+
+    &-tweet {
+        width: 100px;
+    }
+    &-lyrics {
+        font-size: 1.5em;
+
+        &-line {
+            padding: 15px 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            line-height: 1.5em;
         }
     }
 }
