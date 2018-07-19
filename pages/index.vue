@@ -16,6 +16,7 @@
 </template>
 
 <script>
+  import TweenMax from "gsap/TweenMax"
   import { mapState } from 'vuex'
 
   export default {
