@@ -6,7 +6,7 @@ const createStore = () => {
             page: 'demo',
             indexedLab: 0,
             slideNext: false,
-            isClosed: false,
+            isClosed: true,
             labs: [
                 {
                     page: 'knockout-text',
