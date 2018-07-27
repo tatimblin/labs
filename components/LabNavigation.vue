@@ -40,7 +40,7 @@
                     <a href="http://timblin.co/" target="_blank">timblin.co</a>
                 </div>
                 <div class="nav-external-link" v-if="currentLab">
-                    <a :href="`https://github.com/tatimblin/labs/blob/master/pages/${ currentLab.page }.vue`" target="_blank">Source</a>
+                    <a :href="`https://github.com/tatimblin/labs/blob/master/pages/labs${ currentLab.page }.vue`" target="_blank">Source</a>
                 </div>
                 <div class="nav-external-link nav-external-link__desktop">
                     <github-button></github-button>
@@ -52,7 +52,7 @@
         </div>
     </nav>
     <header v-bind:class="{expand: isDetail}">
-        <detail></detail>
+        <lab-detail></lab-detail>
     </header>
 </section>
 </template>

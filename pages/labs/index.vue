@@ -1,18 +1,18 @@
 <template>
   <section>
-    <site-about></site-about>
+    <site-list></site-list>
   </section>
 </template>
 
 <script>
   //import TweenLight from "gsap/TweenLight"
-  import SiteAbout from '~/components/SiteAbout.vue'
+  import SiteList from '~/components/SiteList.vue'
 
   export default {
     layout: 'site',
     transition: 'slide',
     components: {
-        SiteAbout
+        SiteList
     }
   }
 </script>

@@ -2,7 +2,7 @@
     <section class="site site-about">
         <div class="site-about-content">
             <h1>I’m <a @click="popup($event)" href="#" id="action-link">Tristan</a>, a front-end developer using motion to tell engaging stories for brands.</h1>
-            <h1>From the labs, I design in code, it’s part of my process.</h1>
+            <h1>From the <nuxt-link to="/labs">labs</nuxt-link>, I design in code, it’s part of my process.</h1>
         </div>
         <div id="image-wrap"></div>
     </section>

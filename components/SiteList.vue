@@ -1,7 +1,9 @@
 <template>
     <section class="site-list">
         <ul>
-            <li v-for="lab in labs" :key="lab.index">{{ lab.title }}</li>
+            <li v-for="lab in labs" :key="lab.index">
+                <nuxt-link :to="lab.page">{{ lab.title }}</nuxt-link>
+            </li>
         </ul>
     </section>
 </template>
