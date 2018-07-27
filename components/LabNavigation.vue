@@ -62,14 +62,14 @@
     import IconBase from './IconBase.vue'
     import IconTwitter from './IconTwitter.vue'
     import GithubButton from './GithubButton.vue'
-    import Detail from './Detail.vue'
+    import LabDetail from './LabDetail.vue'
     
     export default {
         components: {
             IconBase,
             IconTwitter,
             GithubButton,
-            Detail
+            LabDetail
         },
         computed: {
             ...mapState(['page', 'labs', 'slideNext', 'isClosed']),
