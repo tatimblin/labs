@@ -1,0 +1,17 @@
+// Global variables, must be included in each project.
+// Use: @import '~assets/_variables.scss';
+
+//----------------
+// Typography
+//----------------
+
+section.site {
+
+h1 {
+    padding: 30px 0;
+    font-family: $font-site;
+    font-size: 6vw;
+    line-height: 1.2em;
+}
+
+}
