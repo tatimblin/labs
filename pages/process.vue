@@ -12,7 +12,6 @@
 
   export default {
     layout: 'site',
-    transition: 'slide',
     components: {
         SiteAbout,
         SiteProcess

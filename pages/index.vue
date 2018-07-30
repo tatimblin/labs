@@ -1,7 +1,7 @@
 <template>
-  <section>
+  <div class="site">
     <site-about></site-about>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -12,12 +12,12 @@
     layout: 'site',
     transition: 'slide',
     components: {
-        SiteAbout
+      SiteAbout
     }
   }
 </script>
 
 <style scoped lang="scss"> 
-  @import '~assets/sass/_variables.scss';
+@import '~assets/sass/_variables.scss';
 
 </style>

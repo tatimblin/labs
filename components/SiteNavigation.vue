@@ -32,8 +32,6 @@
 @import '~assets/sass/_variables.scss';
 
 header {
-    position: absolute;
-    width: 100%;
 
     .container {
         display: flex;
@@ -44,11 +42,15 @@ header {
 
         a {
             font-family: $font;
-            color: $light-txt;
+            font-size: 0.5em;
             text-decoration: none;
         }
         nav a {
-            padding-left: $spacing; 
+            padding-left: $spacing;
+            
+            @include bigger($screen-sm) {
+                padding-left: $spacing*2;
+            }
         }
     }
 }

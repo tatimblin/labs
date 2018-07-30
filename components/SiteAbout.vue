@@ -1,6 +1,6 @@
 <template>
     <section class="site site-about">
-        <div class="site-about-content">
+        <div class="container site-about-content">
             <h1>I’m <a @click="popup($event)" href="#" id="action-link">Tristan</a>, a front-end developer using motion to tell <nuxt-link to="/projects">engaging stories</nuxt-link> for brands.</h1>
             <h1>From the <nuxt-link to="/labs">labs</nuxt-link>, I design in code, it’s part of my <nuxt-link to="/process">process</nuxt-link>.</h1>
         </div>
@@ -65,21 +65,7 @@
 @import '~assets/sass/_variables.scss';
 
 .site-about {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: $dark-bg;
-
-    &-content {
-        position: relative;
-        padding: 0 3vw;
-        z-index: 100;
-
-        h1 {
-            color: $light-txt;
-        }
-    }
+    
 }
 
 #image-wrap {

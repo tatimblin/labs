@@ -2,16 +2,11 @@
 // Use: @import '~assets/_variables.scss';
 
 //----------------
-// Typography
+// Containers
 //----------------
 
-section.site {
-
-h1 {
-    padding: 30px 0;
-    font-family: $font-site;
-    font-size: 6vw;
-    line-height: 1.2em;
-}
-
+.container {
+    max-width: $container-lg;
+    margin: $spacing*2 auto;
+    padding: 0 $spacing;
 }

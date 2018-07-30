@@ -36,15 +36,6 @@
 <style lang="scss">
 @import '~assets/sass/_variables.scss';
 
-h3 {
-    padding: 0 0 $spacing 0;
-    font-family: $font;
-    font-size: 18px;
-    text-transform: uppercase;
-    letter-spacing: .16em;
-    font-weight: 600;
-}
-
 .detail__scroll {
     position: relative;
     width: 100%; height: 100%;
@@ -73,6 +64,14 @@ h3 {
             flex-direction: row;
         }
 
+        h3 {
+            padding: 0 0 $spacing 0;
+            font-family: $font;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: .16em;
+            font-weight: 600;
+        }
         div {
             margin: $spacing 0;
             padding: 0 $spacing;
