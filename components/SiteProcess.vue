@@ -1,16 +1,18 @@
 <template>
     <section class="container site-process">
         <div class="process-list">
-            <div class="process-list-item">
-                <div class="process-list-item-num">
-                    <h1>01</h1>
-                    <small>Inspiration</small>
-                </div>
-                <div class="process-list-item-detail">
-                    <h3>What is this</h3>
-                </div>
-                <div class="process-list-item-expand">
-                    +
+            <div class="process-list-item_wrap">
+                <div class="process-list-item">
+                    <div class="process-list-item-num">
+                        <h1>01</h1>
+                        <small>Inspiration</small>
+                    </div>
+                    <div class="process-list-item-detail">
+                        <h3>What is this</h3>
+                    </div>
+                    <div class="process-list-item-expand">
+                        +
+                    </div>
                 </div>
             </div>
         </div>
@@ -33,10 +35,24 @@
     .process-list {
         margin: $spacing*4 auto;
         
-        &-item {
-            display: flex;
+        &-item_wrap {
             padding: $spacing*2 0;
             border-top: 2px solid $light-bg;
+        }
+
+        &-item {
+            display: flex;
+            padding: $spacing;
+            border-radius: 2px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: lighten($dark-bg, 10%);
+
+                .process-list-item-expand {
+                    transform: scale(1.5);
+                }
+            }
 
             div {
                 margin: 0 $spacing;
