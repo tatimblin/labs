@@ -32,17 +32,21 @@
 @import '~assets/sass/_variables.scss';
 
 header {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
 
     .container {
         display: flex;
         justify-content: space-between;
         max-width: $container-lg;
-        margin: 60px auto 0 auto;
-        padding: 0 $spacing;
+        margin: 0 auto;
+        padding: 60px $spacing 0;
 
         a {
             font-family: $font;
             font-size: 0.5em;
+            color: $light-txt;
             text-decoration: none;
         }
         nav a {

@@ -65,7 +65,14 @@
 @import '~assets/sass/_variables.scss';
 
 .site-about {
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+
+    &-content {
+
+    }
 }
 
 #image-wrap {

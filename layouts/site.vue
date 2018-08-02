@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="layout__site">
         <site-navigation/>
         <nuxt/>
     </div>
@@ -17,5 +17,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '~assets/sass/_variables.scss';
 
+.layout__site {
+    background-color: $dark-bg;
+    color: $light-bg;
+}
 </style>
