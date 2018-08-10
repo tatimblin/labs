@@ -103,7 +103,7 @@
 
                 li {
                     a {
-                        color: $brand;
+                        color: $dark-txt;
                     }
                 }
             }
@@ -116,7 +116,7 @@
         font-size: 10px;
         letter-spacing: 0.16em;
         text-transform: uppercase;
-        color: lighten($brand, 50%);
+        color: lighten($dark-txt, 50%);
         line-height: 1.5em;
     }
 }

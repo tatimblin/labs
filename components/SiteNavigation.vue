@@ -5,7 +5,7 @@
                 <nuxt-link exact to="/">timblin.io</nuxt-link>
             </div>
             <nav>
-                <nuxt-link exact to="projects">projects</nuxt-link>
+                <nuxt-link exact to="project">projects</nuxt-link>
                 <nuxt-link exact to="labs">labs</nuxt-link>
                 <nuxt-link exact to="process">process</nuxt-link>
             </nav>
@@ -49,8 +49,8 @@ header {
             padding: 0 2px;
             text-align: center;
             font-family: $font;
-            font-size: 0.5em;
-            color: $light-txt;
+            font-size: 0.6em;
+            color: white;
             mix-blend-mode: difference;
             text-decoration: none;
 
@@ -58,8 +58,9 @@ header {
                 content: '';
                 position: absolute;
                 width: 100%; height: 6px;
-                top: 50%; bottom: 50%; left: 0;
-                background-color:#d0d0d068;
+                top: 66%; bottom: 33%; left: 0;
+                background-color: $brand;
+                opacity: 0.33;
                 transform: scale(0, 1);
                 transform-origin: 0;
                 z-index: -1;
@@ -69,8 +70,8 @@ header {
                 content: '';
                 position: absolute;
                 width: 100%; height: 6px;
-                top: 50%; bottom: 50%; left: 0;
-                background-color: $light-txt;
+                top: 66%; bottom: 33%; left: 0;
+                background-color: $brand;
                 transform: scale(0, 1);
                 transform-origin: 0;
                 z-index: -1;

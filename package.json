@@ -15,6 +15,7 @@
   "dependencies": {
     "ajv": "^6.5.0",
     "gsap": "^2.0.1",
+    "netlify-cms": "^2.0.9",
     "nuxt": "^1.0.0"
   },
   "devDependencies": {

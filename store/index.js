@@ -7,6 +7,7 @@ const createStore = () => {
             indexedLab: 0,
             slideNext: false,
             isClosed: true,
+            currentPost: 1,
             labs: [
                 {
                     page: 'knockout-text',
