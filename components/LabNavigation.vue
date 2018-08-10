@@ -130,9 +130,15 @@
         
         &-ctrl {
             display: flex;
+
+            a {
+                margin: 0;
+            }
             
             &-next, &-prev {
-                width: 30px; height: 1.3em;
+                position: relative;
+                width: 20px; height: 1.15em;
+                padding: 0 10px 0 0;
                 transition: transform 400ms 75ms $ease;
 
                 &:hover {
@@ -142,8 +148,8 @@
                 &-icon {
                     color: $dark-txt;
                     position: absolute;
-                    margin-left: 2px;
-                    margin-top: 18px;
+                    margin-left: 2px; margin-right: 2px;
+                    margin-top: 18px; margin-bottom: 18px;
                     width: 14px;
                     height: 1px;
                     background-color: currentColor;
@@ -242,10 +248,10 @@
     // Transition lab title
     .swipe-enter-active, .swipe-leave-active {
         transform: translateY(-1em);
-        animation: swipe-text 450ms 0ms 1 reverse forwards;
+        animation: swipe-text 1000ms 0ms 1 reverse forwards;
     }
     .swipe-enter, .swipe-leave-to {
-        animation: swipe-text 450ms 0ms 1 forwards;
+        animation: swipe-text 1250ms 0ms 1 forwards;
     }
 
     @keyframes swipe-text {
