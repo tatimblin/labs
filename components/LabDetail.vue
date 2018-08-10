@@ -2,7 +2,7 @@
     <div class="detail__scroll">
     <section class="detail">
         <div class="detail-content">
-            <div class="detail-content-desc">
+            <div :v-if="currentLab.desc" class="detail-content-desc">
                 <h3>About This Experiment</h3>
                 <p>{{ currentLab.desc }}</p>
             </div>

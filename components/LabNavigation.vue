@@ -140,10 +140,10 @@
                 }
                 
                 &-icon {
-                    color: $brand;
+                    color: $dark-txt;
                     position: absolute;
                     margin-left: 2px;
-                    margin-top: 10px;
+                    margin-top: 18px;
                     width: 14px;
                     height: 1px;
                     background-color: currentColor;
@@ -180,14 +180,15 @@
         }
         &-title {
             padding: 0 $spacing;
-            border-left: 1px solid $brand;
+            border-left: 1px solid $dark-txt;
             overflow: hidden;
             
             h1 {
+                margin: 0;
                 font-family: $font;
                 font-weight: 300;
                 font-size: 18px;
-                color: $brand;
+                color: $dark-txt;
                 text-transform: capitalize;
                 letter-spacing: 0.2px;
             }
@@ -202,7 +203,7 @@
                 margin: 0 0 0 15px;
                 font-family: $font;
                 font-size: 11px;
-                color: $brand;
+                color: $dark-txt;
                 font-weight: 600;
                 text-transform: uppercase;
                 letter-spacing: 0.5px;
@@ -219,7 +220,7 @@
                     width: 0; height: 1px;
                     right: 0;
                     bottom: -5px;
-                    background-color: $brand;
+                    background-color: $dark-txt;
                 }
 
                 a {
