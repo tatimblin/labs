@@ -14,9 +14,9 @@ export default {
   transition: 'fade',
   async asyncData({ params }) {
     // const postPromise = process.BROWSER_BUILD
-    //   ? import('~/content/blog/posts/' + params.slug + '.json')
+    //   ? import('~/content/project/posts/' + params.slug + '.json')
     //   : Promise.resolve(
-    //       require('~/content/blog/posts/' + params.slug + '.json')
+    //       require('~/content/project/posts/' + params.slug + '.json')
     //     );
     let post = await import('~/content/project/posts/' + params.slug + '.json');
     return post;
