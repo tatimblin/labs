@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 const createStore = () => {
     return new Vuex.Store({
         state: {
-            page: 'demo1',
+            page: 'index',
             indexedLab: 0,
             slideNext: false,
             isClosed: true,

@@ -11,13 +11,12 @@
 <script>
 export default {
   layout: 'site',
-  transition: 'fade',
   async asyncData({ params }) {
-    // const postPromise = process.BROWSER_BUILD
-    //   ? import('~/content/project/posts/' + params.slug + '.json')
-    //   : Promise.resolve(
-    //       require('~/content/project/posts/' + params.slug + '.json')
-    //     );
+    const postPromise = process.BROWSER_BUILD
+      ? import('~/content/project/posts/' + params.slug + '.json')
+      : Promise.resolve(
+       require('~/content/project/posts/' + params.slug + '.json')
+      );
     let post = await import('~/content/project/posts/' + params.slug + '.json');
     return post;
   }

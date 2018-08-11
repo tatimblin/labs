@@ -1,7 +1,7 @@
 <template>
     <div class="home container large-width">
         <div class="content-block">
-            <h2>Home</h2>
+            <h2>Not Home</h2>
             <ul>
                 <li v-for="post in posts" :key="post.date">
                     <nuxt-link :to="post._path">
