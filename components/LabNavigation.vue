@@ -37,7 +37,7 @@
                     </transition>
                 </div>
                 <div class="nav-external-link nav-external-link__desktop">
-                    <nuxt-link to="/">timblin.io</nuxt-link>
+                    <a href="/labs">timblin.io</a>
                 </div>
                 <div class="nav-external-link" v-if="currentLab">
                     <a :href="`https://github.com/tatimblin/labs/blob/master/pages/labs${ currentLab.page }.vue`" target="_blank">Source</a>
