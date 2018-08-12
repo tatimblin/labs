@@ -120,25 +120,21 @@ section.page {
 
 @keyframes site-in {
     0% {
-        
+        transform: translateY($spacing*4);
         opacity: 0; 
     }
-    40% {
-
-        opacity: 1;
-    }
     100% {
-
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 @keyframes site-out {
     0% {
-
-    }
-    60% {
+        transform: translateY(0);
         opacity: 1;
     }
     100% { 
+        transform: translateY(-$spacing*4);
         opacity: 0;
     }
 }

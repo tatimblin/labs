@@ -68,7 +68,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 85vh;
 
     &-content {
 

@@ -1,6 +1,8 @@
 <template>
   <section>
-    <site-about></site-about>
+    <div class="container site-process-content">
+        <h1>My Process</h1>
+    </div>
     <site-process></site-process>
   </section>
 </template>
@@ -22,5 +24,12 @@
 
 <style scoped lang="scss"> 
   @import '~assets/sass/_variables.scss';
+
+  .site-process-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 85vh;
+  }
 
 </style>
