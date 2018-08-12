@@ -5,9 +5,9 @@
                 <nuxt-link exact to="/">timblin.io</nuxt-link>
             </div>
             <nav>
-                <nuxt-link exact to="project">projects</nuxt-link>
-                <nuxt-link exact to="labs">labs</nuxt-link>
-                <nuxt-link exact to="process">process</nuxt-link>
+                <nuxt-link exact to="/project/">projects</nuxt-link>
+                <nuxt-link exact to="/labs/">labs</nuxt-link>
+                <nuxt-link exact to="/process/">process</nuxt-link>
             </nav>
         </div>
     </header>

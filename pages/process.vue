@@ -12,6 +12,7 @@
 
   export default {
     layout: 'site',
+    transition: 'site',
     components: {
         SiteAbout,
         SiteProcess

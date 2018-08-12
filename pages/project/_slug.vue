@@ -11,6 +11,7 @@
 <script>
 export default {
   layout: 'site',
+  transition: 'site',
   async asyncData({ params }) {
     const postPromise = process.BROWSER_BUILD
       ? import('~/content/project/posts/' + params.slug + '.json')

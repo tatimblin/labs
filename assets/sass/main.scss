@@ -69,7 +69,84 @@ section.page {
     }
 }
 
-// Slide Previous
+
+/* * * *
+* LIST TRANSITION
+* * * */
+
+.list-enter-active {
+    animation: list-in 1.4s $ease;
+}
+.list-leave-active {
+    animation: list-out 1.2s $ease;
+}
+
+@keyframes list-in {
+    0% {
+
+        opacity: 0; 
+    }
+    40% {
+
+        opacity: 1;
+    }
+    100% {
+
+    }
+}
+@keyframes list-out {
+    0% {
+
+    }
+    60% {
+        opacity: 1;
+    }
+    100% { 
+        opacity: 0;
+    }
+}
+
+
+/* * * *
+* SITE TRANSITION
+* * * */
+
+.site-enter-active {
+    animation: site-in 1.4s $ease;
+}
+.site-leave-active {
+    animation: site-out 1.2s $ease;
+}
+
+@keyframes site-in {
+    0% {
+        
+        opacity: 0; 
+    }
+    40% {
+
+        opacity: 1;
+    }
+    100% {
+
+    }
+}
+@keyframes site-out {
+    0% {
+
+    }
+    60% {
+        opacity: 1;
+    }
+    100% { 
+        opacity: 0;
+    }
+}
+
+
+/* * * *
+* SLIDE TRANSITION
+* * * */
 .slide-enter-active {
     animation: slide-in 1.4s $ease;
 }

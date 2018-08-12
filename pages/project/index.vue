@@ -17,6 +17,7 @@
 
 export default {
   layout: 'site',
+  transition: 'list',
   data() {
     // Using webpacks context to gather all files from a folder
     const context = require.context('~/content/project/posts/', false, /\.json$/);

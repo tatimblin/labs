@@ -10,7 +10,7 @@
 
   export default {
     layout: 'site',
-    transition: 'slide',
+    transition: 'site',
     components: {
       SiteAbout
     }
