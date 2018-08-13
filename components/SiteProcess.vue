@@ -33,7 +33,8 @@
 .site-process {
 
     .process-list {
-        margin: $spacing*4 auto;
+        margin: 0 auto;
+        padding: 0 0 $spacing*4 0;
         
         &-item_wrap {
             padding: $spacing*2 0;

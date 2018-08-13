@@ -2,7 +2,7 @@
     <section class="site site-about">
         <div class="container site-about-content">
             <h1>I’m <a @click="popup($event)" href="#" id="action-link">Tristan</a>, a front-end developer using motion to tell <nuxt-link to="/project">engaging stories</nuxt-link> for brands.</h1>
-            <h1>From the <nuxt-link to="/labs">labs</nuxt-link>, I design in code, it’s part of my <nuxt-link to="/process">process</nuxt-link>.</h1>
+            <h1>From my <nuxt-link to="/labs">labs</nuxt-link>, I design in code, it’s part of my <nuxt-link to="/process">process</nuxt-link>.</h1>
         </div>
         <div id="image-wrap"></div>
     </section>
@@ -71,18 +71,21 @@
     min-height: 85vh;
 
     &-content {
-
+        position: relative;
+        z-index: 1;
     }
 }
 
 #image-wrap {
 	position: absolute;
-	top: 0; left: 0;
+    top: 0; left: 0;
+    z-index: 0;
 	
 	img {
 		position: absolute;
 		display: block;
-		transform-origin: center center;
+        transform-origin: center center;
+        filter: saturate(50%) contrast(0.6);
 	}
 }
 

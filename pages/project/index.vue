@@ -1,23 +1,18 @@
 <template>
-    <div class="home container large-width">
-        <div class="content-block">
-            <h2>Not Home</h2>
-            <ul>
-                <li v-for="post in posts" :key="post.date">
-                    <nuxt-link :to="post._path">
-                        {{ post.title }}
-                    </nuxt-link>
-                </li>
-            </ul>
-        </div>
+    <div class="home container small-width">
+        <site-list></site-list>
     </div>
 </template>
 
 <script>
+import SiteList from '~/components/SiteList.vue'
 
 export default {
   layout: 'site',
   transition: 'list',
+  components: {
+    SiteList
+  },
   data() {
     // Using webpacks context to gather all files from a folder
     const context = require.context('~/content/project/posts/', false, /\.json$/);
@@ -31,3 +26,8 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+
+</style>
+
