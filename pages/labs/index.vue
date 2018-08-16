@@ -1,6 +1,6 @@
 <template>
   <section>
-    <site-list></site-list>
+    <site-list list="labs"></site-list>
   </section>
 </template>
 

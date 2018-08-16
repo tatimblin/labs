@@ -1,6 +1,6 @@
 <template>
     <div class="home container small-width">
-        <site-list></site-list>
+        <site-list list-type="posts"></site-list>
     </div>
 </template>
 
@@ -12,17 +12,6 @@ export default {
   transition: 'list',
   components: {
     SiteList
-  },
-  data() {
-    // Using webpacks context to gather all files from a folder
-    const context = require.context('~/content/project/posts/', false, /\.json$/);
-
-    const posts = context.keys().map(key => ({
-      ...context(key),
-      _path: `/project/${key.replace('.json', '').replace('./', '')}`
-    }));
-
-    return { posts };
   }
 };
 </script>
