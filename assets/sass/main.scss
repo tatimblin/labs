@@ -4,7 +4,6 @@
     'site';
 
 body {
-    background-color: $dark-txt;
     overflow-x: hidden;
 }
 
@@ -25,6 +24,7 @@ section.page {
 
 .is-closed section.page {
     max-width: 100%;
+    min-height: 100vh;
     margin: 0 auto;
     box-shadow: none;
     transition: all 600ms 00ms $ease;
@@ -32,15 +32,25 @@ section.page {
 
 // use class .limit-width on page wrapper to prevent full screen desktop.
 #__layout div:not(.is-closed) { 
+
     .limit-width {
         max-width: $screen-lg;
-        margin: 0 auto;
+        margin: 0 auto 15px auto;
 
         @include smaller($container-lg) {
             margin: 0 15px 15px 15px;
         }
     }
 }
+
+// Use with .limit-width to keep fixed elements in page area.
+.fixed-width {
+    position: fixed;
+    max-width: 100%;
+    transition: all 400ms 100ms $ease;
+    z-index: 1000;
+}
+
 .page h1 {
     text-align: center;
     padding: 30px 0;

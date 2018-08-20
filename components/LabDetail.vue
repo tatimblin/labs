@@ -2,17 +2,21 @@
     <div class="detail__scroll">
     <section class="detail">
         <div class="detail-content">
-            <div v-if="currentLab.desc" class="detail-content-desc">
+            <div class="detail-content-desc">
                 <h3>About This Experiment</h3>
-                <p>{{ currentLab.desc }}</p>
+                <p v-if="currentLab.desc">{{ currentLab.desc }}</p>
+                <p v-else>No Description Found</p>
             </div>
-            <div class="detail-content-res" v-if="currentLab.resources">
+            <div class="detail-content-res">
                 <h3>Resources</h3>
-                <ul>
+                <ul v-if="currentLab.resources">
                     <li v-for="(resource, index) in currentLab.resources" :key="index">
                         <a :href="`${ resource.url }`" target="_blank">{{ resource.title }}</a>
                     </li>
                     <li><a href="" target="_blank">Vue.js</a></li>
+                </ul>
+                <ul v-else>
+                    <li>No External Resources Found</li>
                 </ul>
             </div>
         </div>

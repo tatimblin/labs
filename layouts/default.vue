@@ -1,17 +1,17 @@
 <template>
     <div v-bind:class="{ 'slide-next': $store.state.slideNext, 'is-closed': $store.state.isClosed }">
-        <navigation/>
+        <lab-navigation/>
         <nuxt/>
     </div>
 </template>
 
 <script>
     import { mapState } from 'vuex'
-    import Navigation from '~/components/LabNavigation.vue'
+    import LabNavigation from '~/components/LabNavigation.vue'
     
     export default {
         components: {
-            Navigation
+            LabNavigation
         },
         computed: {
             ...mapState(['slideNext', 'isClosed'])

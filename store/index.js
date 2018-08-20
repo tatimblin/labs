@@ -63,10 +63,30 @@ const createStore = () => {
         },
         mutations: {
             updatePage (state, pageName) {
-                state.page = pageName
+                state.name = pageName
                 console.log(pageName)
+
+                let title = state.name.substring(5);
+                state.indexedLab = state.labs.findIndex(x => x.page === title)
+
+                // Go back to most recent lab when reach end.
+                if (state.indexedLab == state.labs.length - 1) {
+                    state.prevLab = 0
+                } else {
+                    state.prevLab = state.indexedLab + 1
+                }
+                // Jump to earliest tab when at beginning.
+                if (state.indexedLab == 0) {
+                    state.nextLab = state.labs.length - 1
+                } else {
+                    state.nextLab = state.indexedLab - 1
+                }
+            },
+            updateLab (state, pageName) {
+                state.page = pageName
+
                 //state.indexedLab = state.templabs.indexOf(state.page)
-                state.indexedLab = state.labs.findIndex(x => x.page === state.page)
+                state.indexedLab = state.labs.findIndex(x => x.page === 'labs/' + state.page)
                 // Go back to most recent lab when reach end.
                 if (state.indexedLab == state.labs.length - 1) {
                     state.prevLab = 0

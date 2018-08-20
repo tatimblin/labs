@@ -1,7 +1,7 @@
 <template>
-  <section>
+  <div class="home container small-width">
     <site-list list="labs"></site-list>
-  </section>
+  </div>
 </template>
 
 <script>
