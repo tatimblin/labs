@@ -72,20 +72,9 @@ export default {
     methods: {
         playMusic() {
             this.playing = !this.playing;
-            this.updateLine()
             console.log(this.lyrics.length)
         },
-        updateLine() {
-            if (this.index === this.lyrics.length - 1) {
-                this.index = 0
-            } else {
-                this.index = this.index + 1
-            }
-            setTimeout( () => {
-                console.log('Current line - ' + this.index);
-                this.updateLine()
-            }, this.lyrics[this.index].duration );
-        }
+        
     }
 }
 </script>
@@ -175,7 +164,7 @@ $width: 400px;
             }
         }
         .album-desc {
-            transform: translateY(-150px) translateX(-100px);
+            transform: translateY(-150px) translateX(-110px);
             color: #fff;
         }
     }
