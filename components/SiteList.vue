@@ -7,20 +7,30 @@
         </ul>
         <div v-else class="site-list-post">
             <div class="site-list-post-preview">
-                <transition name="post-preview" mode="in-out">
+                <transition name="post-preview" mode="out-in">
                     <img :key="projIndex" :src="`${ posts[projIndex].thumbnail }`">
                 </transition>
             </div>
             <ul>
+                <transition-group 
+                    appear 
+                    name="list" 
+                    tag="li"
+                    v-bind:css="false"
+                    v-on:enter="enter"
+                >
                 <li v-for="(post, index) in posts" :key="post.date" @mouseover="highlightProject(`${index}`)">
                     <nuxt-link :to="post._path">{{ post.title }}</nuxt-link>
                 </li>
+                </transition-group>
             </ul>
         </div>
     </section>
 </template>
 
 <script>
+
+    import TweenMax from "gsap"
     import { mapState } from 'vuex'
 
     export default {
@@ -50,6 +60,28 @@
         methods: {
             highlightProject(i) {
                 this.projIndex = i
+            },
+            enter: function (el, done) {
+                console.log('enter');
+                TweenMax.staggerFrom(el, 0.5, { 
+				scale: 1.25,
+				opacity: 0,
+				y: 250,
+				x: 1,
+				rotation: -50,
+				cycle: {
+					x:function(index, target){
+						return 200 + (index + 100);
+					},
+					rotation:function(index, target){
+						return -30 - (index + 5);
+					}
+				},
+				delay:0.5,
+				ease: Back.easeOut.config(1.7),
+				force3D:true,
+				onComplete: done
+			});
             }
         }
     }
@@ -59,6 +91,7 @@
 @import '~assets/sass/_variables.scss';
 
 .site-list {
+    position: relative;
     text-align: right;
 
     ul {
@@ -72,10 +105,14 @@
         }
     }
     &-post-preview {
+        max-width: 400px;
+        left: 50%; right: 50%;
+
         img {
             position: absolute;
-            width: 300px;
-            left: 0;
+            max-width: 400px;
+            transform-origin: center center;
+            opacity: 0.33;
         }
     }
 }
@@ -83,21 +120,21 @@
 
 // Transition lab title
 .post-preview-enter-active {
-    transform-origin: center left;
-    transition: all .3s ease;
+    //transform: rotate3D(3, 1, -1.5, 30deg) scale(0.5);
+    transition: all .6s 0.3s $ease;
 }
 
 .post-preview-leave-active {
-    transition: all .3s ease;
+    transition: all .3s $ease;
 }
 
 .post-preview-enter {
-    transform: translateY(60px) scale(0.5);
+    transform: rotate3D(0.75, 0.5, -0.25, 90deg) scale(0.5);
     opacity: 0 !important;
 }
 
 .post-preview-leave-to {
-    transform: translateY(-60px);
+    transform: rotate3D(0.75, 0.5, -0.25, 90deg) scale(0.5);
     opacity: 0 !important;
 }
 
