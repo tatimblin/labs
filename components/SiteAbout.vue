@@ -85,7 +85,7 @@
 		position: absolute;
 		display: block;
         transform-origin: center center;
-        filter: saturate(50%) contrast(0.6);
+        filter: saturate(75%) contrast(0.8);
 	}
 }
 
