@@ -51,11 +51,8 @@
             <div class="toggle-icon"></div>
         </div>
     </nav>
-    <header v-bind:class="{expand: isDetail}" v-if="nextLab.desc">
+    <header v-bind:class="{expand: this.isDetail}">
         <lab-detail></lab-detail>
-    </header>
-    <header v-else>
-        <p>No Detail Found</p>
     </header>
 </section>
 </template>
