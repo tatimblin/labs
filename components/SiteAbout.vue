@@ -16,10 +16,10 @@
                 load: true,
                 count: 0,
                 images: [
-                    {img:'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=43b23ffecdd73c911f9846d64f353bfd'},
-                    {img:'https://images.unsplash.com/photo-1524108633824-d73da6fd508c?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=a593d67255f7e58e2e4bd730e933cf3b'},
-                    {img:'https://images.unsplash.com/photo-1503185912284-5271ff81b9a8?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=43aaaa646666a2c370b706a36c09ebfc'},
-                    {img:'https://images.unsplash.com/photo-1514315384763-ba401779410f?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=4a868d9cb0ead954b650717371055a86'}
+                    {img:'timblin-aboutme-1.jpg'},
+                    {img:'timblin-aboutme-2.jpg'},
+                    {img:'timblin-aboutme-3.gif'},
+                    {img:'timblin-aboutme-4.jpg'}
                 ]
             }
         },
@@ -35,7 +35,7 @@
                 // create el
                 let node = document.createElement("img");
                 // add attr
-                node.src = this.images[this.count].img;
+                node.src = 'images/site/' + this.images[this.count].img;
                 
                 // draggable
                 let drag = document.createAttribute("v-drag");
