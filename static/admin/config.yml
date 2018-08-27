@@ -19,9 +19,10 @@ collections:
     label: "Process"
     folder: "content/process/posts"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{index}}-{{slug}}"
     format: 'json'
     fields:
+      - {label: "Index", name: "index", widget: "number"}
       - {label: "Sub Title", name: "sub-title", widget: "string"}
       - {label: "Description", name: "description", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
