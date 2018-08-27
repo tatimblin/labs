@@ -20,7 +20,7 @@ collections:
     folder: "content/process/posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    format: 'markdown'
+    format: 'json'
     fields:
       - {label: "Sub Title", name: "sub-title", widget: "string"}
       - {label: "Description", name: "description", widget: "string"}
