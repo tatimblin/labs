@@ -45,7 +45,7 @@ header {
         height: 15vh;
         margin: 0 auto;
         //padding: 60px $spacing 0;
-        background-color: $dark-bg;
+        //background-color: $dark-bg;
         isolation: isolate;
 
         a {
