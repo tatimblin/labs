@@ -6,7 +6,7 @@
 
 <script>
   //import TweenLight from "gsap/TweenLight"
-  import SiteList from '~/components/SiteList.vue'
+  import SiteList from '~/components/site/SiteList.vue'
 
   export default {
     layout: 'site',

@@ -1,23 +1,23 @@
 <template>
   <section>
-    <div class="container site-process-content">
-        <h1>My Process</h1>
-    </div>
-    <site-process></site-process>
+    <process-hero></process-hero>
+    <process-list></process-list>
   </section>
 </template>
 
 <script>
   //import TweenLight from "gsap/TweenLight"
-  import SiteAbout from '~/components/SiteAbout.vue'
-  import SiteProcess from '~/components/SiteProcess.vue'
+  import SiteAbout from '~/components/site/SiteAbout.vue'
+  import ProcessHero from '~/components/site/ProcessHero.vue'
+  import ProcessList from '~/components/site/ProcessList.vue'
 
   export default {
     layout: 'site',
     transition: 'site',
     components: {
         SiteAbout,
-        SiteProcess
+        ProcessHero,
+        ProcessList,
     }
   }
 </script>
@@ -25,11 +25,6 @@
 <style scoped lang="scss"> 
   @import '~assets/sass/_variables.scss';
 
-  .site-process-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 85vh;
-  }
+  
 
 </style>

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import SiteList from '~/components/SiteList.vue'
+import SiteList from '~/components/site/SiteList.vue'
 
 export default {
   layout: 'site',

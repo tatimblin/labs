@@ -41,12 +41,7 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: $container-lg;
         height: 15vh;
-        margin: 0 auto;
-        //padding: 60px $spacing 0;
-        //background-color: $dark-bg;
-        isolation: isolate;
 
         a {
             position: relative;

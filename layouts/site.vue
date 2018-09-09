@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import SiteNavigation from '~/components/SiteNavigation.vue'
+import SiteNavigation from '~/components/site/SiteNavigation.vue'
 
 export default {
     components: {
