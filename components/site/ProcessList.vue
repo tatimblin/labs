@@ -4,19 +4,19 @@
 
         <div class="process-list">
 
-            <div v-for="(step, index) in steps" :key="index" class="process-list-item">
+            <div v-for="(item) in items" :key="item.index" class="process-list-item">
 
                 <div class="process-list-item-num">
 
-                    <h1>0{{ index }}</h1>
+                    <h1>{{ item.index }}</h1>
 
-                    <small>{{ step.title }}</small>
+                    <small>{{ item.title }}</small>
 
                 </div>
 
                 <div class="process-list-item-detail">
 
-                    <h3>{{ step.desc }}</h3>
+                    <h3>{{ item.description }}</h3>
 
                 </div>
 
@@ -61,7 +61,7 @@
                         desc: 'Compiling successful competitive products and relevant examples in other industries.'
                     },
                     {
-                        title: 'Journies',
+                        title: 'Journeys',
                         desc: 'a desc.'
                     },
                     {
