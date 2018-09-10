@@ -1,7 +1,10 @@
 var glob = require('glob');
 var path = require('path');
 var dynamicRoutes = getDynamicPaths({
-  '/project': 'project/posts/*.json', '/process': 'process/items/*.json'
+  '/project': 'project/posts/*.json'
+});
+var processRoutes = getDynamicPaths({
+  '/process': 'process/items/*.json'
 });
 
 module.exports = {
@@ -75,7 +78,10 @@ module.exports = {
   ** Route config for pre-rendering
   */
   generate: {
-    routes: dynamicRoutes
+    routes: [
+      dynamicRoutes,
+      processRoutes
+    ]
   }
 }
 
