@@ -132,9 +132,6 @@
                     font-size: 0.45em;
                 }
             }
-            &-detail {
-                
-            }
             &-expand {
                 margin-left: auto !important;
                 align-self: center;
