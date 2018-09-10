@@ -1,7 +1,7 @@
 var glob = require('glob');
 var path = require('path');
 var dynamicRoutes = getDynamicPaths({
-  '/project': 'project/posts/*.json'
+  '/project': 'project/posts/*.json', '/process': 'process/items/*.json'
 });
 
 module.exports = {

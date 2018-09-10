@@ -37,7 +37,16 @@
 
     export default {
         data() {
+            // Using webpacks context to gather all files from a folder
+            const context = require.context('~/content/process/items/', false, /\.json$/);
+
+            const items = context.keys().map(key => ({
+                ...context(key),
+                _path: `/process/${key.replace('.json', '').replace('./', '')}`
+            }));
+
             return { 
+                items,
                 steps: [
                     {
                         title: 'Discovery',

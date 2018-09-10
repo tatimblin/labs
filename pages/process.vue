@@ -1,6 +1,5 @@
 <template>
   <section>
-    <process-hero></process-hero>
     <process-list></process-list>
   </section>
 </template>
