@@ -1,8 +1,28 @@
 <template>
     <section class="site site-about">
         <div class="container site-about-content">
-            <h1>I’m <a @click="popup($event)" href="#" id="action-link">Tristan</a>, a front-end developer using motion to tell <nuxt-link to="/project">engaging stories</nuxt-link> for brands.</h1>
-            <h1>From my <nuxt-link to="/labs">labs</nuxt-link>, I design in code, it’s part of my <nuxt-link to="/process">process</nuxt-link>.</h1>
+            <h1 :class="{ hide: isHidden }">
+                I’m 
+                <a @click="popup($event)" href="#" id="action-link" @mouseover="highlightLink()" @mouseleave="highlightLink()">
+                    Tristan
+                </a>
+                  , a front-end developer using motion to tell 
+                <nuxt-link to="/project" @mouseover.native="highlightLink()" @mouseleave.native="highlightLink()">
+                    engaging stories
+                </nuxt-link> 
+                for brands.
+                </h1>
+            <h1 :class="{ hide: isHidden }">
+                From my 
+                <nuxt-link to="/labs" @mouseover.native="highlightLink()" @mouseleave.native="highlightLink()">
+                    labs
+                </nuxt-link>
+                , I design in code, it’s part of my  
+                <nuxt-link to="/process" @mouseover.native="highlightLink()" @mouseleave.native="highlightLink()">
+                    process
+                </nuxt-link>
+                .
+            </h1>
         </div>
         <div id="image-wrap"></div>
     </section>
@@ -15,6 +35,7 @@
             return {
                 load: true,
                 count: 0,
+                isHidden: false,
                 images: [
                     {img:'timblin-aboutme-1.jpg'},
                     {img:'timblin-aboutme-2.jpg'},
@@ -56,6 +77,9 @@
                     imageWrap.removeChild(imageWrap.childNodes[0])
                 }
                 console.log('child: ' + this.images[this.count].img)
+            },
+            highlightLink() {
+                this.isHidden = !this.isHidden
             }
         }
     }
@@ -72,7 +96,55 @@
 
     &-content {
         position: relative;
+        perspective: 90px;
         z-index: 1;
+
+        a {
+            position: relative;
+            color: $light-txt;
+            text-decoration: none;
+            &:before {
+                content: '';
+                position: absolute;
+                width: 100%; height: 6px;
+                top: 66%; bottom: 33%; left: 0;
+                background-color: $brand;
+                opacity: 0.33;
+                transform-origin: 0;
+                z-index: -1;
+                transition: transform 300ms $ease;
+            }
+            &:after {
+                content: '';
+                position: absolute;
+                width: 100%; height: 6px;
+                top: 66%; bottom: 33%; left: 0;
+                background-color: $brand;
+                transform: scale(0, 1);
+                transform-origin: 0;
+                z-index: -1;
+                transition: transform 300ms 900ms $ease;
+            }
+
+            &:hover:after {
+                transform: scale(1, 1);
+            }
+        }
+        h1 {
+            transition: all 300ms $ease;
+            a {
+                display: inline-block;
+                transition: all 300ms $ease;
+            }
+        }
+        .hide {
+            color: #ececec20;
+            transform: translate3d(0,0,-15px);
+
+            a {
+                transform: scale(1.3);
+            }
+        }
     }
 }
 
