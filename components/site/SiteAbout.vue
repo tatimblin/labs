@@ -80,7 +80,39 @@
             },
             highlightLink() {
                 this.isHidden = !this.isHidden
+            },
+            preloadImages (srcs) {
+                function loadImage(src) {
+                    return new Promise(function(resolve, reject) {
+                        var img = new Image();
+                        img.onload = function() {
+                            resolve(img);
+                        };
+                        img.onerror = img.onabort = function() {
+                            reject(src);
+                        };
+                        img.src = src;
+                    });
+                }
+                var promises = [];
+                for (var i = 0; i < srcs.length; i++) {
+                    promises.push(loadImage(srcs[i]));
+                }
+                return Promise.all(promises);
             }
+        },
+        created () {
+            this.preloadImages(
+                [
+                    'images/site/timblin-aboutme-1.jpg',
+                    'images/site/timblin-aboutme-2.jpg',
+                    'images/site/timblin-aboutme-3.jpg',
+                    'images/site/timblin-aboutme-4.jpg'
+            ]).then(function(imgs) {
+                console.log('images loaded');
+            }, function(errImg) {
+                console.log('error loading images');
+            });
         }
     }
 </script>
@@ -131,17 +163,19 @@
             }
         }
         h1 {
-            transition: all 300ms $ease;
+            transition: all 300ms 300ms $ease;
             a {
                 display: inline-block;
-                transition: all 300ms $ease;
+                transition: all 300ms 300ms $ease;
             }
         }
         .hide {
             color: #ececec20;
+            transition: all 300ms $ease;
             transform: translate3d(0,0,-15px);
 
             a {
+                transition: all 300ms $ease;
                 transform: scale(1.3);
             }
         }
