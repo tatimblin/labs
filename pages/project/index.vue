@@ -1,22 +1,45 @@
 <template>
-    <div class="home container small-width">
-        <site-list list-type="posts"></site-list>
-    </div>
+  <div class="project container small-width">
+    <ul>
+      <li v-for="post in posts" :key="post.date">
+        <list-item v-bind="post"/>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
-import SiteList from '~/components/site/SiteList.vue'
+import ListItem from '~/components/site/ListItem.vue'
 
 export default {
   layout: 'site',
   transition: 'list',
   components: {
-    SiteList
-  }
+    ListItem
+  },
+  data() {
+    const context = require.context('~/content/project/posts/', false, /\.json$/);
+    const posts = context.keys().map(key => ({
+    ...context(key),
+    _path: `/project/${key.replace('.json', '').replace('./', '')}`
+    }));
+    return { 
+      posts,
+      projIndex: 0
+    };
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+.project {
+  ul {
+    width: 50%;
 
+    li {
+      text-align: right
+    }
+  }
+}
 </style>
 

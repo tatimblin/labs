@@ -1,20 +1,22 @@
 <template>
-    <div v-bind:class="{ 'slide-next': $store.state.slideNext, 'is-closed': $store.state.isClosed }">
-        <lab-navigation/>
-        <nuxt/>
+    <div class="lab">
+        <lab-interface/>
+        <div class="lab-content">
+            <nuxt/>
+        </div>
     </div>
 </template>
 
 <script>
     import { mapState } from 'vuex'
-    import LabNavigation from '~/components/LabNavigation.vue'
+    import LabInterface from '~/components/lab/LabInterface.vue'
     
     export default {
         components: {
-            LabNavigation
+            LabInterface
         },
         computed: {
-            ...mapState(['slideNext', 'isClosed'])
+            ...mapState(['hideUi'])
         }
     }
 </script>

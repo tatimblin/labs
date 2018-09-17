@@ -1,0 +1,6 @@
+{
+    "title": "Knockout Text",
+    "date": "2018-05-15T19:32:44.767Z",
+    "thumbnail": "/images/uploads/profilepic.jpg",
+    "body": "A hero transition effect, inverting its featured image onto overlayed text. Using heavy type and an image contrasting strongly from its background, keeps the text legible. Busier images like this Philadelphia mural also help by having small enough details for the inversing to be noticable. The transition was acheived by placing the image ontop of itself and masking the top layer into the letters, to hide the image within the letters the type is darkened with filters. Triggering the switch is then as simple as fading out the background and turning off the filters."
+  }
