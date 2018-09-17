@@ -16,7 +16,12 @@
             
             <div class="about-sec">
                 <small>Footprint</small>
-                
+                <ul>
+                    <li>ottophilly.com 🏢</li>
+                    <li>eatyour.fish 🍣</li>
+                    <li>metropolitanphilly.com 🏘</li>
+                    <li>Gamemodeone.com 🎮</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -67,9 +72,12 @@ export default {
     perspective: 90px;
 
     h1 {
+        @include query ($screen-md) {
+            font-size: 4.5em;
+            line-height: 1em;
+        }
         @include query ($screen-lg) {
             font-size: 5.75em;
-            line-height: 1em;
         }
     }
     p {
@@ -96,6 +104,13 @@ export default {
             position: relative;
             display: inline-block;
             transition: all 900ms 300ms $ease;
+        }
+        ul {
+            li {
+                padding-right: $spacing*2;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+            }
         }
         .highlight {
             transform-origin: center center;

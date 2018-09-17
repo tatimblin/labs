@@ -3,11 +3,22 @@
         <div class="lab-nav-index">
             
             <div class="lab-nav-index-ctrl">
-                prev / next {{ next }}
+                <div class="lab-nav-index-ctrl-prev">
+
+                    <nuxt-link :to="nav.next">{{ nav.prev }}</nuxt-link>
+
+                </div>
+                <div class="lab-nav-index-ctrl-next">
+
+                    <nuxt-link :to="nav.next">{{ nav.next }}</nuxt-link>
+
+                </div>
             </div>
 
             <div class="lab-nav-index-title">
-                {{ title }}
+
+                hi - {{ $store.state.indexedLab }}
+
             </div>
 
         </div>
@@ -26,13 +37,13 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
     export default {
         computed: {
-            ...mapState(['isDetail'])
+            ...mapState(['isDetail', 'indexedLab']),
+            ...mapGetters(['thisLab', 'nav'])
         },
-        props:['title', 'path', 'next'],
         data() {
             return {
 

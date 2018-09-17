@@ -42,45 +42,7 @@ header {
         justify-content: space-between;
         align-items: center;
         height: 15vh;
-
-        a {
-            position: relative;
-            padding: 0 2px;
-            text-align: center;
-            font-family: $font;
-            font-size: 0.6em;
-            color: white;
-            mix-blend-mode: difference;
-            text-decoration: none;
-
-            &:before {
-                content: '';
-                position: absolute;
-                width: 100%; height: 6px;
-                top: 66%; bottom: 33%; left: 0;
-                background-color: $brand;
-                opacity: 0.33;
-                transform: scale(0, 1);
-                transform-origin: 0;
-                z-index: -1;
-                transition: transform 300ms $ease;
-            }
-            &:after {
-                content: '';
-                position: absolute;
-                width: 100%; height: 6px;
-                top: 66%; bottom: 33%; left: 0;
-                background-color: $brand;
-                transform: scale(0, 1);
-                transform-origin: 0;
-                z-index: -1;
-                transition: transform 300ms 900ms $ease;
-            }
-
-            &:hover:before {
-                transform: scale(1, 1);
-            }
-        }
+        
         nav a {
             margin-left: $spacing;
             

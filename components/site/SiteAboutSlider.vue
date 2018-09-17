@@ -2,6 +2,7 @@
     <div class="slider">
             
             <div class="slider-img" @click="changeImage()">
+                <overlay-graphic/>
                 <transition name="slide-change" mode="out-in">
                     <div :key="index" class="slider-img-cell" :style="`background-image: url('images/site/${ images[index].img }')`"></div>
                 </transition>
@@ -27,8 +28,12 @@
 </template>
 
 <script>
+import OverlayGraphic from '~/components/site/OverlayGraphic.vue'
 
 export default {
+    components: {
+        OverlayGraphic
+    },
     data() {
         return {
             index: 0,
@@ -100,12 +105,17 @@ export default {
         border-bottom: 6px solid $light-bg;
         
         &-cell {
-            position: absolute;
             width: 80%; height: 100%;
             margin: 0 auto;
-            background-size: 100%;
-            background-repeat: repeat-y;
+            background-size: 120%;
+            background-position: 50% 50%;
             transition: all 300ms $ease;
+        }
+        svg {
+            position: absolute;
+            width: 100%; height: 100%;
+            top: 0; left: 0;
+            z-index: 100;
         }
     }
     &-meta {
@@ -120,36 +130,24 @@ export default {
     animation: slide-in 1s $ease 1;
 }
 .slide-change-leave-active {
-    background-size: 100%;
-        background-position: center top;
-
-    animation: slide-out 1s 2s $ease 1;
+    animation: slide-out 1s 0s $ease 1;
 }
 
 @keyframes slide-in {
     0% {
-        background-size: 16.667%;
-        background-position: center bottom;
-        transform: translateY(100%);
+        opacity: 0;
     }
     100% {
-        background-size: 100%;
-        background-position: center bottom;
+        opacity: 1;
     }
 }
 
 @keyframes slide-out {
     0% {
-        background-size: 100%;
-        background-position: center top;
-    }
-    50% {
-        
+        opacity: 1;
     }
     100% {
-        background-size: 16.667%;
-        background-position: center top;
-        transform: translateY(-100%);
+        opacity: 0;
     }
 }
 

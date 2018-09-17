@@ -21,6 +21,7 @@
     width: 58%;
     margin-left: 42%;
     font-family: $font-head;
+    letter-spacing: 0em;
     text-align: right;
     transform: scale(1.75, 1);
     transform-origin: right;
@@ -32,6 +33,7 @@
 }
 
 // Page Links
+.site {
 a {
     position: relative;
     padding: 0 2px;
@@ -67,4 +69,5 @@ a {
     &:hover:before {
         transform: scale(1, 1);
     }
+}
 }

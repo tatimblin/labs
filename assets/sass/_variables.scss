@@ -5,10 +5,9 @@
 //----------------
 // Typography
 //----------------
-@import url('https://fonts.googleapis.com/css?family=Nova+Cut');
 
 $font: "brevia", sans-serif;
-$font-site: 'Nova Cut', cursive;
+$font-site: "nimbus-sans",sans-serif;
 $font-head: "paralucent",sans-serif;
 
 
@@ -24,6 +23,7 @@ h1, h2, h3, h4 {
   font-family: $font-site;
   font-weight: inherit;
   line-height: 1.66em;
+  letter-spacing: 0.075em;
 }
 
 h1 {
@@ -31,7 +31,11 @@ h1 {
   font-size: 3.75em;
 }
 
-h2 {font-size: 1.5em;}
+h2 {
+    font-size: 1.5em;
+    font-weight: 100;
+    text-transform: lowercase;
+}
 
 h3 {font-size: 1.125em;}
 

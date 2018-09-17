@@ -12,6 +12,7 @@
     import LabInterface from '~/components/lab/LabInterface.vue'
     
     export default {
+        middleware: 'labs',
         components: {
             LabInterface
         },

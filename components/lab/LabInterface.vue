@@ -5,10 +5,7 @@
 
         <div :class="{ visible : $store.state.isNav }">
 
-            <lab-navigation 
-                v-bind="posts[$store.state.indexedLab]" 
-                :next="next"
-            />
+            <lab-navigation/>
 
         </div>
 
@@ -47,13 +44,6 @@ import UiExpander from '~/components/lab/UiExpander.vue'
                 next: '',
                 prev: ''
             }
-        },
-        created() {
-            let i = this.$store.state.indexedLab
-            let next = ++i
-            let prev = --i
-            
-            this.next = this.posts[next].path
         }
     }
 </script>

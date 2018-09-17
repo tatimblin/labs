@@ -1,15 +1,15 @@
 <template>
   <div class="lab container small-width">
     <ul>
-      <li v-for="(post, index) in posts" :key="post.date">
-        <list-item v-bind="post" @click="$store.state.indexedLab = index"/>{{$store.state.indexedLab}}
+      <li v-for="lab in labs" :key="lab.date">
+        <list-item v-bind="lab"/>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+  import { mapState, mapGetters } from 'vuex'
   import ListItem from '~/components/site/ListItem.vue'
 
   export default {
@@ -19,18 +19,16 @@
         ListItem
     },
     computed: {
-      ...mapState(['indexedLab'])
+      ...mapState(['indexedLab']),
+      ...mapGetters(['labs'])
     },
     data() {
-      const context = require.context('~/content/lab/posts/', false, /\.json$/);
-      const posts = context.keys().map(key => ({
-      ...context(key),
-      _path: `/labs/${key.substring(13).replace('.json', '').replace('./', '')}`
-      }));
       return { 
-        posts,
-        projIndex: 0
+        
       };
+    },
+    methods: {
+      
     }
   }
 </script>

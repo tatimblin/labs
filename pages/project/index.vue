@@ -21,7 +21,7 @@ export default {
     const context = require.context('~/content/project/posts/', false, /\.json$/);
     const posts = context.keys().map(key => ({
     ...context(key),
-    _path: `/project/${key.replace('.json', '').replace('./', '')}`
+    path: `/project/${key.replace('.json', '').replace('./', '')}`
     }));
     return { 
       posts,

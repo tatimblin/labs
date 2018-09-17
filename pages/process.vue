@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="small-width">
     <process-list></process-list>
   </section>
 </template>
@@ -17,6 +17,20 @@
         SiteAbout,
         ProcessHero,
         ProcessList,
+    },
+    data() {
+      // Using webpacks context to gather all files from a folder
+      const context = require.context('~/content/project/posts/', false, /\.json$/);
+
+      const posts = context.keys().map(key => ({
+      ...context(key),
+      _path: `/project/${key.replace('.json', '').replace('./', '')}`
+      }));
+
+      return { 
+        posts,
+        projIndex: 0
+      };
     }
   }
 </script>
