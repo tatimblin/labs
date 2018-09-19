@@ -9,7 +9,7 @@
 
         </div>
 
-        <div :class="{ visible : $store.state.isDetail }">
+        <div :class="{ visible : $store.state.isDetail }" class="lab-interface-nav">
 
             <lab-detail v-bind="posts[$store.state.indexedLab]"/>
 
@@ -60,6 +60,13 @@ import UiExpander from '~/components/lab/UiExpander.vue'
     }
     .visible {
         max-height: 600px;
+    }
+    &-nav {
+        opacity: 0;
+
+        &.visible {
+            opacity: 1;
+        }
     }
 }
 </style>

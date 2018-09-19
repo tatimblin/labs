@@ -1,5 +1,5 @@
 <template>
-    <div class="ui-expander" @click="toggleNav">
+    <div v-bind:class="{ closed: $store.state.isNav }" class="ui-expander" @click="toggleNav">
         <div class="ui-expander-icon"></div>
     </div>
 </template>
@@ -31,12 +31,13 @@ export default {
 .ui-expander {
     position: absolute;
     top: 0; left: 50%;
+    cursor: pointer;
     z-index: 999;
 
     &-icon {
         display: inline-block;
         height: $spacing; width: $spacing;
-        padding: $spacing;
+        padding: $spacing/2 $spacing $spacing $spacing;
         transform: translateX(-50%);
         
         &:before, &:after {
@@ -48,23 +49,48 @@ export default {
             transition: all 300ms 100ms $ease;
         }
         &:before {
-            border-radius: 10px 0 0 10px;
+            border-radius: 0 10px 10px 0;
             transform-origin: 0 top;
             transform: translateX(50%);
         }
         &:after {
-            border-radius: 0 10px 10px 0;
+            border-radius: 10px 0 0 10px;
             transform-origin: 100% top;
             transform: translateX(-50%);
         }
     }
     &:hover .ui-expander-icon:before {
-        border-radius: 10px 0 10px 10px;
+        border-radius: 0 10px 10px 0;
         transform: translateX(50%) rotate(-25deg);
     }
     &:hover .ui-expander-icon:after {
-        border-radius: 0 10px 10px 10px;
+        border-radius: 10px 0 0 10px;
         transform: translateX(-50%) rotate(25deg);
+    }
+}
+
+.closed {
+    .ui-expander-icon {
+        &:before {
+            border-radius: 10px 10px 10px 10px;
+            transform-origin: 100% bottom !important;
+            transform: translateX(50%);
+        } 
+        &:after {
+            border-radius: 10px 10px 10px 10px;
+            transform-origin: 0 bottom !important;
+            transform: translateX(-50%);
+        }
+    }
+    &:hover {
+        & .ui-expander-icon:before {
+            //border-radius: 10px 10px 10px 10px;
+            transform: translateX(50%) rotate(25deg);
+        }
+        & .ui-expander-icon:after {
+            //border-radius: 10px 10px 10px 10px;
+            transform: translateX(-50%) rotate(-25deg);
+        }
     }
 }
 </style>

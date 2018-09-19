@@ -1,5 +1,5 @@
 <template>
-  <div class="project container small-width">
+  <div class="project container large-width">
     <ul>
       <li v-for="post in posts" :key="post.date">
         <list-item v-bind="post"/>

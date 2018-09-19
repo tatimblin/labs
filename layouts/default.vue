@@ -24,4 +24,8 @@
 
 <style scoped lang="scss">
 
+    .lab-content {
+        position: relative;
+        z-index: 100;
+    }
 </style>

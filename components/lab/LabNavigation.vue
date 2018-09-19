@@ -5,19 +5,19 @@
             <div class="lab-nav-index-ctrl">
                 <div class="lab-nav-index-ctrl-prev">
 
-                    <nuxt-link :to="nav.next">{{ nav.prev }}</nuxt-link>
+                    <nuxt-link :to="nav.next">prev</nuxt-link>
 
                 </div>
                 <div class="lab-nav-index-ctrl-next">
 
-                    <nuxt-link :to="nav.next">{{ nav.next }}</nuxt-link>
+                    <nuxt-link :to="nav.next">next</nuxt-link>
 
                 </div>
             </div>
 
             <div class="lab-nav-index-title">
 
-                hi - {{ $store.state.indexedLab }}
+                <h2>{{ thisLab.title }}</h2>
 
             </div>
 
@@ -27,7 +27,7 @@
                 Details
             </div>
             <div class="lab-nav-extra-link">
-                Github
+                <a :href="`https://github.com/tatimblin/labs/blob/master/pages${$route.path}.vue`" target="_blank">Github</a>
             </div>
             <div class="lab-nav-extra-link">
                 <nuxt-link to="/">Home</nuxt-link>
@@ -63,13 +63,32 @@ import { mapState, mapGetters } from 'vuex'
 .lab-nav {
     display: flex;
     justify-content: space-between;
-    padding: $spacing*2 0;
+    padding: $spacing 0 0 0;
 
     &-index {
         display: flex;
+        align-items: center;
+
+        &-ctrl {
+            display: flex;
+
+            > div {
+                padding: $spacing;
+            }
+        }
+        &-title {
+            position: relative;
+            padding-left: $spacing;
+            border-left: 1px solid $dark-bg;
+        }
     }
     &-extra {
         display: flex;
+
+        &-link {
+            padding: $spacing;
+            cursor: pointer;
+        }
     }
 }
 </style>
