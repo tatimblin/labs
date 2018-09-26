@@ -1,5 +1,5 @@
 <template>
-  <section class="small-width">
+  <section class="container large-width">
     <process-list></process-list>
   </section>
 </template>
@@ -11,7 +11,7 @@
   import ProcessList from '~/components/site/ProcessList.vue'
 
   export default {
-    layout: 'site',
+    layout: 'home',
     transition: 'site',
     components: {
         SiteAbout,

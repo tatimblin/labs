@@ -12,6 +12,7 @@ const createStore = () => {
                 page: 'index',
                 labs,
                 indexedLab: 0,
+                indexedProj: 0,
                 isNav: true,
                 isDetail: true
             }
@@ -41,7 +42,8 @@ const createStore = () => {
                     prev,
                     next
                 }
-            }
+            },
+            thisBg: state => state.labs[state.indexedProj].thumbnail
         },
         mutations: {
             updatePage (state, pageName) {
@@ -60,6 +62,10 @@ const createStore = () => {
                 if( state.isDetail) {
                     state.isDetail = !state.isDetail
                 }
+            },
+            bgImage (state, i) {
+                state.indexedProj = i
+                state.indexedLab = i
             }
         }
     })

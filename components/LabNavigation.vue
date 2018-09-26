@@ -11,45 +11,39 @@
                     <div @click="$store.state.slideNext = false" class="nav-ctrl-prev-icon"></div>
                 </nuxt-link>
             </div>
-            <div class="nav-title" v-if="currentLab">
-                <transition name="swipe" mode="out-in">
-                    <div
-                        v-if="isChange"
-                        key="expand_close"
-                        ><h1>{{ currentLab.title }}</h1></div>
-                    <div
-                        v-else
-                        key="expand_detail"
-                        ><h1>{{ currentLab.title }}</h1></div>
-                </transition>
+            <div class="nav-title">
+
+                <h1>{{posts[$store.state.indexedLab].title}}</h1>
+
             </div>
             <div class="nav-external">
-                <div class="nav-external-link">
-                    <transition name="swipe" mode="out-in">
-                        <div class="nav-external-link-close"
-                            v-if="isDetail" 
-                            @click="toggleDetail"
-                            key="expand_close">Close</div>
-                        <div class="nav-external-link-open"
-                            v-else 
-                            @click="toggleDetail"
-                            key="expand_detail">Details</div>
-                    </transition>
+
+                <div>
+
+                    Details
+
                 </div>
-                <div class="nav-external-link nav-external-link__desktop">
+
+                <div>
+
                     <a href="/labs">timblin.io</a>
+
                 </div>
-                <div class="nav-external-link" v-if="currentLab">
+
+                <div>
+
                     <a :href="`https://github.com/tatimblin/labs/blob/master/pages/labs${ currentLab.page }.vue`" target="_blank">Source</a>
+                
                 </div>
-                <div class="nav-external-link nav-external-link__desktop">
+
+                <div>
+
                     <github-button></github-button>
+
                 </div>
             </div>
         </div>
-        <div class="toggle" @click="toggleNav">
-            <div class="toggle-icon"></div>
-        </div>
+        <ui-expander/>
     </nav>
     <header v-bind:class="{expand: this.isDetail}">
         <lab-detail></lab-detail>
@@ -76,7 +70,13 @@
             ...mapGetters(['currentLab', 'prevLab', 'nextLab'])
         },
         data() {
+            const context = require.context('~/content/lab/posts/', false, /\.json$/);
+            const posts = context.keys().map(key => ({
+                ...context(key),
+                _path: `/labs/${key.substring(13).replace('.json', '').replace('./', '')}`
+            }));
             return {
+                posts,
                 isDetail: false,
                 isChange: false
             }
@@ -204,7 +204,7 @@
             align-items: center;
             margin-left: auto;
             
-            &-link {
+            > div {
                 position: relative;
                 margin: 0 0 0 15px;
                 font-family: $font;
@@ -276,68 +276,6 @@
 
             @include bigger ($screen-sm) {
                 transform: translateY(-1.2em);
-            }
-        }
-    }
-
-    
-    // Open close navigation
-    .toggle {
-        position: absolute;
-        width: 18px * 2; height: 18px*2;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        cursor: pointer;
-        z-index: 9999;
-        
-        &-icon {
-            
-            &:before, &:after {
-                content: '';
-                position: absolute;
-                width: 15px; height: 3px;
-                bottom: 50%;
-                background-color: #a1a1a1;
-                transform-origin: 100% top;
-                transition: all 300ms 100ms $ease;
-            }
-            &:before {
-                border-radius: 10px 0 0 10px;
-                transform: rotate(0deg);
-            }
-            &:after {
-                border-radius: 0 10px 10px 0;
-                transform: rotate(0deg) translateX(15px);
-            }
-        }
-        &:hover .toggle-icon:before {
-            border-radius: 10px 0 10px 10px;
-            transform: rotate(-25deg);
-        }
-        &:hover .toggle-icon:after {
-            border-radius: 0 10px 10px 10px;
-            transform: rotate(25deg) translateX(15px);
-        }
-    }
-    
-    // closed navigation
-    .active {
-        height: 0;
-        
-        .nav {
-            transform: translateY(-65px);
-        }
-        .toggle {
-            
-            &-icon:before, &-icon:after {
-                transform-origin: 100% bottom;
-            }
-            &:hover .toggle-icon:before {
-            transform: rotate(25deg);
-            }
-            &:hover .toggle-icon:after {
-                transform: rotate(-25deg) translateX(15px);
             }
         }
     }

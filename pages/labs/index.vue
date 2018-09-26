@@ -1,10 +1,20 @@
 <template>
-  <div class="lab container small-width">
-    <ul>
-      <li v-for="lab in labs" :key="lab.date">
-        <list-item v-bind="lab"/>
-      </li>
-    </ul>
+  <div class="lab">
+
+    <div class="lab-list container large-width">
+
+      <ul>
+
+        <li v-for="lab in labs" :key="lab.date">
+
+          <list-item v-bind="lab"/>
+
+        </li>
+
+      </ul>
+
+    </div>
+
   </div>
 </template>
 
@@ -14,7 +24,6 @@
 
   export default {
     layout: 'site',
-    transition: 'list',
     components: {
         ListItem
     },
@@ -35,15 +44,19 @@
 
 <style scoped lang="scss"> 
   .lab {
-    
-  ul {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    &-list {
+      position: relative;
+      padding: 50vh 0 25vh 0;
+      z-index: 10;
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
 
-    li {
-      width: 50%;
+      li {
+        width: 50%;
+      }
     }
   }
-}
 </style>

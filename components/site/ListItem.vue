@@ -19,5 +19,10 @@
 <style lang="scss">
 @import '~assets/sass/_variables.scss';
 
+.list-item {
+    padding-bottom: 6rem;
+    font-family: $font-head;
+    font-size: 2.675em;
+}
 
 </style>

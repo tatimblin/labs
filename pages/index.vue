@@ -9,8 +9,7 @@
   import SiteAbout from '~/components/site/SiteAbout.vue'
 
   export default {
-    layout: 'site',
-    transition: 'site',
+    layout: 'home',
     components: {
       SiteAbout
     }
